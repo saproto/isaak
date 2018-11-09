@@ -19,15 +19,15 @@ class ViewController: UIViewController {
     @IBAction func LogInPressed(_ sender: UIButton) {
         
         let oauthswift = OAuth2Swift(
-            consumerKey:    "*********",
-            consumerSecret: "*********",        // No secret required
+            consumerKey:    "*****",
+            consumerSecret: "*****",        // No secret required
             authorizeUrl:   "https://proto.utwente.nl/oauth/authorize",
             accessTokenUrl: "https://proto.utwente.nl/oauth/token",
-            responseType:   "code"
+            responseType:   "code",
+            contentType:    "autorization_code"
         )
         
         oauthswift.allowMissingStateCheck = true
-        //2
         oauthswift.authorizeURLHandler = SafariURLHandler(viewController: self, oauthSwift: oauthswift)
         
         guard let rwURL = URL(string: "saproto://oauth_callback") else { return }
@@ -37,8 +37,6 @@ class ViewController: UIViewController {
         }, failure: { (error) in
             //self.presentAlert("Error", message: error.localizedDescription)
         })
-        
-        
         
         
     }
