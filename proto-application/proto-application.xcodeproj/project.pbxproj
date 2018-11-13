@@ -18,6 +18,8 @@
 		8667E4C32176316E00605CC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8667E4C12176316E00605CC9 /* Main.storyboard */; };
 		8667E4C52176317000605CC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8667E4C42176317000605CC9 /* Assets.xcassets */; };
 		8667E4C82176317000605CC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8667E4C62176317000605CC9 /* LaunchScreen.storyboard */; };
+		86AC7B29219789550064C780 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AC7B28219789550064C780 /* EventCell.swift */; };
+		86AC7B2B2198E3110064C780 /* PurchaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AC7B2A2198E3110064C780 /* PurchaseCell.swift */; };
 		86DE7F292191FE8F00F35841 /* FSCalendarCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DE7F092191FE8F00F35841 /* FSCalendarCollectionView.m */; };
 		86DE7F2A2191FE8F00F35841 /* FSCalendarDelegationProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DE7F0C2191FE8F00F35841 /* FSCalendarDelegationProxy.m */; };
 		86DE7F2B2191FE8F00F35841 /* FSCalendarDelegationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DE7F0E2191FE8F00F35841 /* FSCalendarDelegationFactory.m */; };
@@ -50,6 +52,8 @@
 		8667E4C42176317000605CC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8667E4C72176317000605CC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8667E4C92176317000605CC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86AC7B28219789550064C780 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		86AC7B2A2198E3110064C780 /* PurchaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCell.swift; sourceTree = "<group>"; };
 		86DE7F092191FE8F00F35841 /* FSCalendarCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCalendarCollectionView.m; sourceTree = "<group>"; };
 		86DE7F0A2191FE8F00F35841 /* FSCalendarWeekdayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendarWeekdayView.h; sourceTree = "<group>"; };
 		86DE7F0B2191FE8F00F35841 /* FSCalendarCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendarCollectionViewLayout.h; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 				86DE7F082191FE8F00F35841 /* FSCalendar */,
 				8667E4C42176317000605CC9 /* Assets.xcassets */,
 				8667E4C12176316E00605CC9 /* Main.storyboard */,
+				86AC7B2A2198E3110064C780 /* PurchaseCell.swift */,
 				8667E4BF2176316E00605CC9 /* ViewController.swift */,
 				86305C332190AD540001435B /* HomeViewController.swift */,
 				86305C352190ADA10001435B /* CalendarViewController.swift */,
@@ -137,6 +142,7 @@
 				8667E4BD2176316E00605CC9 /* AppDelegate.swift */,
 				8667E4C62176317000605CC9 /* LaunchScreen.storyboard */,
 				865BB2AC21924463002A2B34 /* bridging-header.h */,
+				86AC7B28219789550064C780 /* EventCell.swift */,
 				8667E4C92176317000605CC9 /* Info.plist */,
 			);
 			path = "proto-application";
@@ -303,10 +309,12 @@
 			files = (
 				86305C3A2190ADCE0001435B /* ProfileViewController.swift in Sources */,
 				86DE7F2B2191FE8F00F35841 /* FSCalendarDelegationFactory.m in Sources */,
+				86AC7B2B2198E3110064C780 /* PurchaseCell.swift in Sources */,
 				86DE7F342191FE8F00F35841 /* FSCalendarCalculator.m in Sources */,
 				86DE7F332191FE8F00F35841 /* FSCalendarConstants.m in Sources */,
 				86DE7F2E2191FE8F00F35841 /* FSCalendar.m in Sources */,
 				86DE7F292191FE8F00F35841 /* FSCalendarCollectionView.m in Sources */,
+				86AC7B29219789550064C780 /* EventCell.swift in Sources */,
 				86DE7F382191FE8F00F35841 /* FSCalendarAppearance.m in Sources */,
 				86DE7F362191FE8F00F35841 /* FSCalendarTransitionCoordinator.m in Sources */,
 				86DE7F322191FE8F00F35841 /* FSCalendarExtensions.m in Sources */,

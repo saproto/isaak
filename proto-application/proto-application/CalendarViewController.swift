@@ -8,16 +8,40 @@
 
 import UIKit
 
-class CalendarViewController: UIViewController {
+class CalendarViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var calHeight: NSLayoutConstraint!
     @IBOutlet var Calendar: FSCalendar!
+    @IBOutlet var eventTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        eventTableView.dataSource = self
+        eventTableView.rowHeight = 100
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "section " + String(section)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "event") as! EventCell
+        
+        cell.eventTitle.text = "Javascript workshop"
+        cell.eventTime.text = "14:35"
+        cell.eventLocation.text = "Spiegel"
+        
+        return cell
+    }
+        
 
 
     /*
@@ -29,6 +53,8 @@ class CalendarViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
     
     @IBAction func segmentControlChanged(_ sender: UISegmentedControl) {
         if segmentedControl.selectedSegmentIndex == 0{

@@ -39,6 +39,7 @@ open class OAuthSwift: NSObject, OAuthSwiftRequestHandle {
         let notification = Notification(name: NSNotification.Name.OAuthSwiftHandleCallbackURL, object: nil,
             userInfo: [CallbackNotification.optionsURLKey: url])
         notificationCenter.post(notification)
+        print(url)
     }
 
     var observer: NSObjectProtocol?
