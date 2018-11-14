@@ -18,6 +18,7 @@
 		8667E4C32176316E00605CC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8667E4C12176316E00605CC9 /* Main.storyboard */; };
 		8667E4C52176317000605CC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8667E4C42176317000605CC9 /* Assets.xcassets */; };
 		8667E4C82176317000605CC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8667E4C62176317000605CC9 /* LaunchScreen.storyboard */; };
+		86995B9B219C525800DD63A8 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86995B9A219C525800DD63A8 /* constants.swift */; };
 		86AC7B29219789550064C780 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AC7B28219789550064C780 /* EventCell.swift */; };
 		86AC7B2B2198E3110064C780 /* PurchaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AC7B2A2198E3110064C780 /* PurchaseCell.swift */; };
 		86DE7F292191FE8F00F35841 /* FSCalendarCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DE7F092191FE8F00F35841 /* FSCalendarCollectionView.m */; };
@@ -52,6 +53,7 @@
 		8667E4C42176317000605CC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8667E4C72176317000605CC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8667E4C92176317000605CC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86995B9A219C525800DD63A8 /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		86AC7B28219789550064C780 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		86AC7B2A2198E3110064C780 /* PurchaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCell.swift; sourceTree = "<group>"; };
 		86DE7F092191FE8F00F35841 /* FSCalendarCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCalendarCollectionView.m; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				8667E4C12176316E00605CC9 /* Main.storyboard */,
 				86AC7B2A2198E3110064C780 /* PurchaseCell.swift */,
 				8667E4BF2176316E00605CC9 /* ViewController.swift */,
+				86995B9A219C525800DD63A8 /* constants.swift */,
 				86305C332190AD540001435B /* HomeViewController.swift */,
 				86305C352190ADA10001435B /* CalendarViewController.swift */,
 				86305C392190ADCE0001435B /* ProfileViewController.swift */,
@@ -330,6 +333,7 @@
 				8667E4BE2176316E00605CC9 /* AppDelegate.swift in Sources */,
 				86305C342190AD540001435B /* HomeViewController.swift in Sources */,
 				86DE7F2A2191FE8F00F35841 /* FSCalendarDelegationProxy.m in Sources */,
+				86995B9B219C525800DD63A8 /* constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,12 +17,12 @@ class ViewController: UIViewController {
     }
 
     @IBAction func LogInPressed(_ sender: UIButton) {
-        /*
+        
         let oauthswift = OAuth2Swift(
-            consumerKey:    "*****",
-            consumerSecret: "*****",
-            authorizeUrl:   "https://proto.utwente.nl/oauth/authorize?acces_type=offline",
-            accessTokenUrl: "https://proto.utwente.nl/oauth/token",
+            consumerKey:    OAuth.consumerKey,
+            consumerSecret: OAuth.consumerSecret,
+            authorizeUrl:   OAuth.authorizeURL,
+            accessTokenUrl: OAuth.accesTokenURL,
             responseType:   "code"
         )
         
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
             print(error)
         })
         
-        */
+        
         
         self.performSegue(withIdentifier: "toHome", sender: nil)
         
