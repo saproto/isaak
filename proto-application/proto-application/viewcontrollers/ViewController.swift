@@ -9,6 +9,7 @@
 import UIKit
 import OAuthSwift
 import AuthenticationServices
+import Alamofire
 
 class ViewController: UIViewController {
 
@@ -36,14 +37,33 @@ class ViewController: UIViewController {
             // Do what you now that you've got the token, or use the callBack URL
             print(oauthToken ?? "No OAuth Token")
             
+            let headers: HTTPHeaders = [
+                "content-type"  : "application/json"]
+            let parameters: Parameters = [
+                "grant_type"    : "authorization_code",
+                "code"          : oauthToken?.value as Any,
+                "redirect_uri"  : OAuth.callbackURL,
+                "client_id"     : OAuth.consumerKey,
+                "client_secret" : OAuth.consumerSecret
+            ]
             
+            Alamofire.request(OAuth.accesTokenURL, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+                print(response)
+                switch response.result{
+                case .success:
+                    self.performSegue(withIdentifier: "toHome", sender: nil)
+                    break
+                case .failure:
+                    let alert = UIAlertController(title: "Failed Authentication", message: "Your authentication failed, please try again", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                    self.present(alert, animated: true)
+                    break
+                }
+            }
             
         })
         
         self.webAuthSession?.start()
-        
-        //self.performSegue(withIdentifier: "toHome", sender: nil)
-        
         
     }
     
