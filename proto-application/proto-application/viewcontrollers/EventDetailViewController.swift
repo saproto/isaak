@@ -1,24 +1,25 @@
 //
-//  HomeViewController.swift
+//  EventDetailViewController.swift
 //  proto-application
 //
-//  Created by Hessel Bierma on 05/11/2018.
+//  Created by Hessel Bierma on 20/11/2018.
 //  Copyright © 2018 S.A. Proto. All rights reserved.
 //
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class EventDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        _ = isLoggedIn()
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func exitPressed(_ sender: UIButton) {
+        self.dismiss(animated: false, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

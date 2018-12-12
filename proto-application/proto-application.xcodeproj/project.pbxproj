@@ -12,6 +12,9 @@
 		86305C362190ADA10001435B /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86305C352190ADA10001435B /* CalendarViewController.swift */; };
 		86305C382190ADB50001435B /* PurchaseHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86305C372190ADB50001435B /* PurchaseHistoryViewController.swift */; };
 		86305C3A2190ADCE0001435B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86305C392190ADCE0001435B /* ProfileViewController.swift */; };
+		8633724221A46DB700DC8061 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8633724121A46DB700DC8061 /* EventDetailViewController.swift */; };
+		8633724421A5717E00DC8061 /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8633724321A5717E00DC8061 /* OAuth.swift */; };
+		8633724621A5C63A00DC8061 /* responseObjectSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8633724521A5C63A00DC8061 /* responseObjectSerializable.swift */; };
 		865BB2A621923D60002A2B34 /* FSCalendar.m in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DE7F172191FE8F00F35841 /* FSCalendar.m */; };
 		8667E4BE2176316E00605CC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667E4BD2176316E00605CC9 /* AppDelegate.swift */; };
 		8667E4C02176316E00605CC9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8667E4BF2176316E00605CC9 /* ViewController.swift */; };
@@ -21,6 +24,9 @@
 		86995B9B219C525800DD63A8 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86995B9A219C525800DD63A8 /* constants.swift */; };
 		86AC7B29219789550064C780 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AC7B28219789550064C780 /* EventCell.swift */; };
 		86AC7B2B2198E3110064C780 /* PurchaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AC7B2A2198E3110064C780 /* PurchaseCell.swift */; };
+		86DD8FE921C11F91001F3CF7 /* ProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DD8FE821C11F91001F3CF7 /* ProfileInfo.swift */; };
+		86DD8FEB21C1207E001F3CF7 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DD8FEA21C1207E001F3CF7 /* Event.swift */; };
+		86DD8FED21C17787001F3CF7 /* dateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DD8FEC21C17787001F3CF7 /* dateHelper.swift */; };
 		86DE7F292191FE8F00F35841 /* FSCalendarCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DE7F092191FE8F00F35841 /* FSCalendarCollectionView.m */; };
 		86DE7F2A2191FE8F00F35841 /* FSCalendarDelegationProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DE7F0C2191FE8F00F35841 /* FSCalendarDelegationProxy.m */; };
 		86DE7F2B2191FE8F00F35841 /* FSCalendarDelegationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DE7F0E2191FE8F00F35841 /* FSCalendarDelegationFactory.m */; };
@@ -45,6 +51,9 @@
 		86305C352190ADA10001435B /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		86305C372190ADB50001435B /* PurchaseHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistoryViewController.swift; sourceTree = "<group>"; };
 		86305C392190ADCE0001435B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		8633724121A46DB700DC8061 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		8633724321A5717E00DC8061 /* OAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth.swift; sourceTree = "<group>"; };
+		8633724521A5C63A00DC8061 /* responseObjectSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = responseObjectSerializable.swift; sourceTree = "<group>"; };
 		865BB2AC21924463002A2B34 /* bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bridging-header.h"; sourceTree = "<group>"; };
 		8667E4BA2176316E00605CC9 /* proto-application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "proto-application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8667E4BD2176316E00605CC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +65,9 @@
 		86995B9A219C525800DD63A8 /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		86AC7B28219789550064C780 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		86AC7B2A2198E3110064C780 /* PurchaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCell.swift; sourceTree = "<group>"; };
+		86DD8FE821C11F91001F3CF7 /* ProfileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfo.swift; sourceTree = "<group>"; };
+		86DD8FEA21C1207E001F3CF7 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		86DD8FEC21C17787001F3CF7 /* dateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateHelper.swift; sourceTree = "<group>"; };
 		86DE7F092191FE8F00F35841 /* FSCalendarCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCalendarCollectionView.m; sourceTree = "<group>"; };
 		86DE7F0A2191FE8F00F35841 /* FSCalendarWeekdayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendarWeekdayView.h; sourceTree = "<group>"; };
 		86DE7F0B2191FE8F00F35841 /* FSCalendarCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendarCollectionViewLayout.h; sourceTree = "<group>"; };
@@ -115,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				8667E4BC2176316E00605CC9 /* proto-application */,
+				86DE7F082191FE8F00F35841 /* FSCalendar */,
 				8667E4BB2176316E00605CC9 /* Products */,
 				865BB2A521923D60002A2B34 /* Frameworks */,
 				A66FA710DD51FAD5E4E6ACA7 /* Pods */,
@@ -134,7 +147,6 @@
 			children = (
 				86995B9F219C73BF00DD63A8 /* helper files */,
 				86995B9D219C730B00DD63A8 /* Table Cells */,
-				86DE7F082191FE8F00F35841 /* FSCalendar */,
 				8667E4C12176316E00605CC9 /* Main.storyboard */,
 				8667E4C62176317000605CC9 /* LaunchScreen.storyboard */,
 				8667E4C42176317000605CC9 /* Assets.xcassets */,
@@ -158,6 +170,7 @@
 				8667E4BF2176316E00605CC9 /* ViewController.swift */,
 				86305C332190AD540001435B /* HomeViewController.swift */,
 				86305C352190ADA10001435B /* CalendarViewController.swift */,
+				8633724121A46DB700DC8061 /* EventDetailViewController.swift */,
 				86305C392190ADCE0001435B /* ProfileViewController.swift */,
 				86305C372190ADB50001435B /* PurchaseHistoryViewController.swift */,
 			);
@@ -169,7 +182,12 @@
 			children = (
 				86995B9A219C525800DD63A8 /* constants.swift */,
 				8667E4BD2176316E00605CC9 /* AppDelegate.swift */,
+				8633724321A5717E00DC8061 /* OAuth.swift */,
+				86DD8FE821C11F91001F3CF7 /* ProfileInfo.swift */,
 				865BB2AC21924463002A2B34 /* bridging-header.h */,
+				86DD8FEC21C17787001F3CF7 /* dateHelper.swift */,
+				8633724521A5C63A00DC8061 /* responseObjectSerializable.swift */,
+				86DD8FEA21C1207E001F3CF7 /* Event.swift */,
 				8667E4C92176317000605CC9 /* Info.plist */,
 			);
 			path = "helper files";
@@ -317,12 +335,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-proto-application/Pods-proto-application-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/OAuthSwift/OAuthSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OAuthSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -337,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86305C3A2190ADCE0001435B /* ProfileViewController.swift in Sources */,
+				8633724221A46DB700DC8061 /* EventDetailViewController.swift in Sources */,
 				86DE7F2B2191FE8F00F35841 /* FSCalendarDelegationFactory.m in Sources */,
 				86AC7B2B2198E3110064C780 /* PurchaseCell.swift in Sources */,
 				86DE7F342191FE8F00F35841 /* FSCalendarCalculator.m in Sources */,
@@ -346,6 +367,8 @@
 				86AC7B29219789550064C780 /* EventCell.swift in Sources */,
 				86DE7F382191FE8F00F35841 /* FSCalendarAppearance.m in Sources */,
 				86DE7F362191FE8F00F35841 /* FSCalendarTransitionCoordinator.m in Sources */,
+				86DD8FED21C17787001F3CF7 /* dateHelper.swift in Sources */,
+				8633724621A5C63A00DC8061 /* responseObjectSerializable.swift in Sources */,
 				86DE7F322191FE8F00F35841 /* FSCalendarExtensions.m in Sources */,
 				86DE7F352191FE8F00F35841 /* FSCalendarHeaderView.m in Sources */,
 				86DE7F2F2191FE8F00F35841 /* FSCalendarCollectionViewLayout.m in Sources */,
@@ -353,13 +376,16 @@
 				86DE7F312191FE8F00F35841 /* FSCalendarSeparatorDecorationView.m in Sources */,
 				86DE7F302191FE8F00F35841 /* FSCalendarWeekdayView.m in Sources */,
 				86DE7F2D2191FE8F00F35841 /* FSCalendarStickyHeader.m in Sources */,
+				86DD8FEB21C1207E001F3CF7 /* Event.swift in Sources */,
 				86DE7F2C2191FE8F00F35841 /* FSCalendarCell.m in Sources */,
 				86305C362190ADA10001435B /* CalendarViewController.swift in Sources */,
+				86DD8FE921C11F91001F3CF7 /* ProfileInfo.swift in Sources */,
 				8667E4C02176316E00605CC9 /* ViewController.swift in Sources */,
 				8667E4BE2176316E00605CC9 /* AppDelegate.swift in Sources */,
 				86305C342190AD540001435B /* HomeViewController.swift in Sources */,
 				86DE7F2A2191FE8F00F35841 /* FSCalendarDelegationProxy.m in Sources */,
 				86995B9B219C525800DD63A8 /* constants.swift in Sources */,
+				8633724421A5717E00DC8061 /* OAuth.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

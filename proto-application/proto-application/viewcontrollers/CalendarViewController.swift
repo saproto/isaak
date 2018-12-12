@@ -7,54 +7,51 @@
 //
 
 import UIKit
+import Alamofire
 
-class CalendarViewController: UIViewController, UITableViewDataSource {
+class CalendarViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var calHeight: NSLayoutConstraint!
     @IBOutlet var Calendar: FSCalendar!
     @IBOutlet var eventTableView: UITableView!
+    var events: Event = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         eventTableView.dataSource = self
+        eventTableView.delegate = self
         eventTableView.rowHeight = 100
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "section " + String(section)
+    override func viewWillAppear(_ animated: Bool) {
+        EventRequest(fromDate: NSDate().timeIntervalSince1970, onlySubscribed: false)
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return "section " + String(section)
+//    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return events.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "event") as! EventCell
         
-        cell.eventTitle.text = "Javascript workshop"
-        cell.eventTime.text = "14:35"
-        cell.eventLocation.text = "Spiegel"
+        cell.eventTitle.text = events[indexPath.row].title
+        cell.eventTime.text = Date(timeIntervalSince1970: events[indexPath.row].start!).readableString()
+        cell.eventLocation.text = events[indexPath.row].location
         
         return cell
     }
         
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little̵ preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "ShowEventDetail", sender: nil)
     }
-    */
-    
-    
     
     @IBAction func segmentControlChanged(_ sender: UISegmentedControl) {
         if segmentedControl.selectedSegmentIndex == 0{
@@ -70,4 +67,35 @@ class CalendarViewController: UIViewController, UITableViewDataSource {
         }
     }
     
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        print("calendar date chosen")
+        print(date)
+        EventRequest(fromDate: date.timeIntervalSince1970, onlySubscribed: false)
+    }
+    
+    func EventRequest(fromDate: Double, onlySubscribed: Bool){
+        
+        let headers: HTTPHeaders = ["Authorization" : "Bearer " + keychain.get("access_token")!]
+        
+        let eventsRequest = Alamofire.request(OAuth.upcomingEvents,
+                                            method: .get,
+                                            parameters: [:],
+                                            encoding: URLEncoding.methodDependent,
+                                            headers: headers)
+        eventsRequest.responseEvent { response in
+            print("response: ")
+            print(response)
+            
+            let eventsResp = response.result.value
+            for i in 0 ... (eventsResp?.count)! - 1{
+                if eventsResp![i].start! >= fromDate{
+                    self.events.append(eventsResp![i])
+                }
+            }
+            print(self.events.count)
+            self.eventTableView.reloadData()
+        }
+    }
 }
+
+

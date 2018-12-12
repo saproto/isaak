@@ -7,11 +7,16 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 class ProfileViewController: UIViewController {
 
     @IBOutlet var profilePicture: UIImageView!
     @IBOutlet var profileVIew: UIView!
+    @IBOutlet var welcomeMessageLbl: UILabel!
+    @IBOutlet var userNameLbl: UILabel!
+    var ppUrl: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,17 +25,31 @@ class ProfileViewController: UIViewController {
         profileVIew.layer.cornerRadius = 100
         profileVIew.layer.masksToBounds = true
         // Do any additional setup after loading the view.
+        
+        let headers: HTTPHeaders = ["Authorization" : "Bearer " + keychain.get("access_token")!]
+        
+        let request = Alamofire.request(OAuth.profileInfo,
+                          method: .get,
+                          parameters: [:],
+                          encoding: URLEncoding.methodDependent,
+                          headers: headers)
+        
+        request.responseProfileInfo{ response in
+            if let profileInfo = response.result.value {
+                
+                DispatchQueue.main.async {
+                    self.welcomeMessageLbl.text = profileInfo.welcomeMessage
+                    self.userNameLbl.text = profileInfo.name
+                    Alamofire.request(profileInfo.photoPreview!).responseImage { response in
+                        if let image = response.result.value{
+                            DispatchQueue.main.async {
+                                self.profilePicture.image = image
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

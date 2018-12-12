@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import KeychainSwift
+
+let keychain = KeychainSwift()
 
 struct OAuth {
     static var consumerKey = "3"
@@ -14,4 +17,6 @@ struct OAuth {
     static var authorizeURL = "https://www.proto.utwente.nl/oauth/authorize?client_id=3&response_type=code&redirect_uri=saproto://oauth_callback&scope=*"
     static var  accesTokenURL = "https://proto.utwente.nl/oauth/token"
     static var callbackURL = "saproto://oauth_callback"
+    static var profileInfo = "https://www.proto.utwente.nl/api/user/info"
+    static var upcomingEvents = "https://www.proto.utwente.nl/api/events/upcoming"
 }
