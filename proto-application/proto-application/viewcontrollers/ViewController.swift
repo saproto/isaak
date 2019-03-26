@@ -15,6 +15,7 @@ class ViewController: UIViewController {
 
     var webAuthSession: ASWebAuthenticationSession?
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBAction func unwindToLogInView(segue: UIStoryboardSegue){}
     
     override func viewDidLoad() {
         super.viewDidLoad()

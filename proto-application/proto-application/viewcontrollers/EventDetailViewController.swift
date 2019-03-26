@@ -9,10 +9,23 @@
 import UIKit
 
 class EventDetailViewController: UIViewController {
-
+    
+    @IBOutlet var eventTitleLbl: UILabel!
+    @IBOutlet var locationLbl: UILabel!
+    @IBOutlet var startTimeLbl: UILabel!
+    @IBOutlet var endTimeLbl: UILabel!
+    @IBOutlet var descriptionText: UITextView!
+    
+    var events: Event = []
+    var eventNr: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        eventTitleLbl.text = events[eventNr].title
+        locationLbl.text = events[eventNr].location
+        startTimeLbl.text = Date(timeIntervalSince1970: events[eventNr].start!).readableString()
+        endTimeLbl.text = Date(timeIntervalSince1970: events[eventNr].end!).readableString()
+        descriptionText.text = events[eventNr].description
         // Do any additional setup after loading the view.
     }
     

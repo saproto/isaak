@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import Alamofire
 
 class PurchaseHistoryViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet var purchaseTable: UITableView!
+    var orderlines: Orderline = []
+    @IBOutlet var totalMonthLabel: UILabel!
+    @IBOutlet var nextWithdrawalLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,37 +25,67 @@ class PurchaseHistoryViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return orderlines.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "section " + String(section)
+        return "Purchases"
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "purchaseCell") as! PurchaseCell
         
-        cell.productName.text = "Snickers"
-        cell.productPrice.text = "€0.50"
-        cell.purchaseTime.text = "14:28:15"
+        cell.productName.text = orderlines[indexPath.row].product?.name
+        cell.productPrice.text = "€" + String(format:"%.2f", orderlines[indexPath.row].totalPrice!)
+        cell.purchaseTime.text = orderlines[indexPath.row].createdAt
+        cell.nrOfUnits.text = String(orderlines[indexPath.row].units!) + "x"
+        cell.unitPrice.text = "€" + String(format:"%.2f", orderlines[indexPath.row].originalUnitPrice!)
         
         return cell
     }
 
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(_ animated: Bool) {
+        let headers: HTTPHeaders = ["Authorization" : "Bearer " + keychain.get("access_token")!]
+        
+        let orderlinesReq = Alamofire.request(OAuth.orderlines,
+                                              method: .get,
+                                              parameters: [:],
+                                              encoding: URLEncoding.methodDependent,
+                                              headers: headers)
+        orderlinesReq.responseOrderline{ response in
+            DispatchQueue.main.async {
+                self.orderlines = response.result.value!
+                self.orderlines.reverse()
+                self.purchaseTable.reloadData()
+                print(self.orderlines.count)
+            }
+            
+        }
+        
+        let totalMonthReq = Alamofire.request(OAuth.total_month,
+                                              method: .get,
+                                              parameters: [:],
+                                              encoding: URLEncoding.methodDependent,
+                                              headers: headers)
+        totalMonthReq.responseString{response in
+            DispatchQueue.main.async {
+                self.totalMonthLabel.text = "€" + response.result.value!
+            }
+        }
+        
+        let nextWithdrawalReq = Alamofire.request(OAuth.next_withdrawal,
+                                              method: .get,
+                                              parameters: [:],
+                                              encoding: URLEncoding.methodDependent,
+                                              headers: headers)
+        nextWithdrawalReq.responseString{response in
+            DispatchQueue.main.async {
+                self.nextWithdrawalLabel.text = "€" + response.result.value!
+            }
+        }
     }
-    */
-    
-    
 }

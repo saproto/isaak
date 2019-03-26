@@ -21,6 +21,7 @@
 		8667E4C32176316E00605CC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8667E4C12176316E00605CC9 /* Main.storyboard */; };
 		8667E4C52176317000605CC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8667E4C42176317000605CC9 /* Assets.xcassets */; };
 		8667E4C82176317000605CC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8667E4C62176317000605CC9 /* LaunchScreen.storyboard */; };
+		8684F73A21C3FA9C00CDF06C /* profilePicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8684F73921C3FA9C00CDF06C /* profilePicture.swift */; };
 		86995B9B219C525800DD63A8 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86995B9A219C525800DD63A8 /* constants.swift */; };
 		86AC7B29219789550064C780 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AC7B28219789550064C780 /* EventCell.swift */; };
 		86AC7B2B2198E3110064C780 /* PurchaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AC7B2A2198E3110064C780 /* PurchaseCell.swift */; };
@@ -42,6 +43,7 @@
 		86DE7F352191FE8F00F35841 /* FSCalendarHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DE7F222191FE8F00F35841 /* FSCalendarHeaderView.m */; };
 		86DE7F362191FE8F00F35841 /* FSCalendarTransitionCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DE7F262191FE8F00F35841 /* FSCalendarTransitionCoordinator.m */; };
 		86DE7F382191FE8F00F35841 /* FSCalendarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 86DE7F282191FE8F00F35841 /* FSCalendarAppearance.m */; };
+		86F3E4FF2237F8FA00259C56 /* orderlines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F3E4FE2237F8FA00259C56 /* orderlines.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,7 @@
 		8667E4C42176317000605CC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8667E4C72176317000605CC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8667E4C92176317000605CC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8684F73921C3FA9C00CDF06C /* profilePicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profilePicture.swift; sourceTree = "<group>"; };
 		86995B9A219C525800DD63A8 /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		86AC7B28219789550064C780 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		86AC7B2A2198E3110064C780 /* PurchaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCell.swift; sourceTree = "<group>"; };
@@ -99,6 +102,7 @@
 		86DE7F252191FE8F00F35841 /* FSCalendarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCalendarCell.h; sourceTree = "<group>"; };
 		86DE7F262191FE8F00F35841 /* FSCalendarTransitionCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCalendarTransitionCoordinator.m; sourceTree = "<group>"; };
 		86DE7F282191FE8F00F35841 /* FSCalendarAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCalendarAppearance.m; sourceTree = "<group>"; };
+		86F3E4FE2237F8FA00259C56 /* orderlines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orderlines.swift; sourceTree = "<group>"; };
 		C932AD9038E6EEDBFBE23C74 /* Pods-proto-application.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proto-application.release.xcconfig"; path = "Pods/Target Support Files/Pods-proto-application/Pods-proto-application.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,7 +189,9 @@
 				8633724321A5717E00DC8061 /* OAuth.swift */,
 				86DD8FE821C11F91001F3CF7 /* ProfileInfo.swift */,
 				865BB2AC21924463002A2B34 /* bridging-header.h */,
+				86F3E4FE2237F8FA00259C56 /* orderlines.swift */,
 				86DD8FEC21C17787001F3CF7 /* dateHelper.swift */,
+				8684F73921C3FA9C00CDF06C /* profilePicture.swift */,
 				8633724521A5C63A00DC8061 /* responseObjectSerializable.swift */,
 				86DD8FEA21C1207E001F3CF7 /* Event.swift */,
 				8667E4C92176317000605CC9 /* Info.plist */,
@@ -336,12 +342,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-proto-application/Pods-proto-application-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,7 +366,9 @@
 			files = (
 				86305C3A2190ADCE0001435B /* ProfileViewController.swift in Sources */,
 				8633724221A46DB700DC8061 /* EventDetailViewController.swift in Sources */,
+				86F3E4FF2237F8FA00259C56 /* orderlines.swift in Sources */,
 				86DE7F2B2191FE8F00F35841 /* FSCalendarDelegationFactory.m in Sources */,
+				8684F73A21C3FA9C00CDF06C /* profilePicture.swift in Sources */,
 				86AC7B2B2198E3110064C780 /* PurchaseCell.swift in Sources */,
 				86DE7F342191FE8F00F35841 /* FSCalendarCalculator.m in Sources */,
 				86DE7F332191FE8F00F35841 /* FSCalendarConstants.m in Sources */,
@@ -535,7 +545,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5DU4B3254H;
+				DEVELOPMENT_TEAM = HV4P9Z4UNR;
 				INFOPLIST_FILE = "$(SRCROOT)/proto-application/helper files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -556,7 +566,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5DU4B3254H;
+				DEVELOPMENT_TEAM = HV4P9Z4UNR;
 				INFOPLIST_FILE = "$(SRCROOT)/proto-application/helper files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (

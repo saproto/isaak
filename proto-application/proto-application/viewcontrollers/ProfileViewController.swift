@@ -40,11 +40,24 @@ class ProfileViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.welcomeMessageLbl.text = profileInfo.welcomeMessage
                     self.userNameLbl.text = profileInfo.name
-                    Alamofire.request(profileInfo.photoPreview!).responseImage { response in
-                        if let image = response.result.value{
-                            DispatchQueue.main.async {
-                                self.profilePicture.image = image
-                            }
+                }
+            }
+        }
+        
+        let profPictureReq = Alamofire.request(OAuth.profilePicture,
+                                               method: .get,
+                                               parameters: [:],
+                                               encoding: URLEncoding.methodDependent,
+                                               headers: headers)
+        
+        profPictureReq.responseProfilePicture{ response in
+            print(response)
+            if let profilePic = response.result.value{
+                print(profilePic.m!)
+                Alamofire.request(profilePic.m!).responseImage { response2 in
+                    if let image = response2.result.value{
+                        DispatchQueue.main.async {
+                            self.profilePicture.image = image
                         }
                     }
                 }
@@ -52,4 +65,8 @@ class ProfileViewController: UIViewController {
         }
     }
 
+    @IBAction func logOutPressed(_ sender: UIButton) {
+        keychain.clear()
+        self.performSegue(withIdentifier: "unwindToLogIn", sender: nil)
+    }
 }

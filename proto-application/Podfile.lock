@@ -1,20 +1,29 @@
 PODS:
-  - Alamofire (4.7.3)
-  - OAuthSwift (1.2.0)
+  - Alamofire (4.8.1)
+  - AlamofireImage (3.5.0):
+    - Alamofire (~> 4.8)
+  - FSCalendar (2.8.0)
+  - KeychainSwift (13.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
-  - OAuthSwift (~> 1.2.0)
+  - AlamofireImage (~> 3.4)
+  - FSCalendar
+  - KeychainSwift (~> 13.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - OAuthSwift
+    - AlamofireImage
+    - FSCalendar
+    - KeychainSwift
 
 SPEC CHECKSUMS:
-  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  OAuthSwift: 7fd6855b8e4d58eb5a30d156ea9bed7a8aecd1ca
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  AlamofireImage: 1aea346f4dda2f6c67622fa5a89fcbb80d79cc16
+  FSCalendar: 3a5ed3636e2ba1b83ebebfcf0c2603105a6f5efe
+  KeychainSwift: 23d6c16cbc33f20fafa30c3d783241b4b87d998c
 
-PODFILE CHECKSUM: 96cef4d48e63907ef062fd291af1a6f6b956c8de
+PODFILE CHECKSUM: d16813381cab4382286f33834fb1c21548f1b7ef
 
 COCOAPODS: 1.5.2

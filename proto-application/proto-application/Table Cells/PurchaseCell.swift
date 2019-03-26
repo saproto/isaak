@@ -13,6 +13,8 @@ class PurchaseCell: UITableViewCell {
     @IBOutlet var productPrice: UILabel!
     @IBOutlet var purchaseTime: UILabel!
     @IBOutlet var productName: UILabel!
+    @IBOutlet var nrOfUnits: UILabel!
+    @IBOutlet var unitPrice: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

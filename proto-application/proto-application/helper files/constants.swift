@@ -19,4 +19,8 @@ struct OAuth {
     static var callbackURL = "saproto://oauth_callback"
     static var profileInfo = "https://www.proto.utwente.nl/api/user/info"
     static var upcomingEvents = "https://www.proto.utwente.nl/api/events/upcoming"
+    static var profilePicture = "https://www.proto.utwente.nl/api/user/profile_picture"
+    static var orderlines = "https://www.proto.utwente.nl/api/user/orders"
+    static var total_month = "https://www.proto.utwente.nl/api/user/orders/total_month"
+    static var next_withdrawal = "https://www.proto.utwente.nl/api/user/orders/next_withdrawal"
 }

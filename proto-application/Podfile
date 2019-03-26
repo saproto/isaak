@@ -12,5 +12,6 @@ target 'proto-application' do
   pod 'Alamofire', '~> 4.7'
   pod 'AlamofireImage', '~> 3.4'
   pod 'KeychainSwift', '~> 13.0'
+  pod 'FSCalendar'
   
 end

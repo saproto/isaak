@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class CalendarViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CalendarViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, FSCalendarDataSource, FSCalendarDelegate {
 
     @IBOutlet var segmentedControl: UISegmentedControl!
     @IBOutlet var calHeight: NSLayoutConstraint!
@@ -22,6 +22,8 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         eventTableView.dataSource = self
         eventTableView.delegate = self
         eventTableView.rowHeight = 100
+        Calendar.delegate = self
+        Calendar.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +37,11 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
 //        return "section " + String(section)
 //    }
     
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        print(date)
+        EventRequest(fromDate: date.timeIntervalSince1970, onlySubscribed: false)
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return events.count
     }
@@ -67,10 +74,12 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        print("calendar date chosen")
-        print(date)
-        EventRequest(fromDate: date.timeIntervalSince1970, onlySubscribed: false)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is EventDetailViewController{
+            let destVC = segue.destination as! EventDetailViewController
+            destVC.events = events
+            destVC.eventNr = eventTableView.indexPathForSelectedRow!.row
+        }
     }
     
     func EventRequest(fromDate: Double, onlySubscribed: Bool){
@@ -85,6 +94,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         eventsRequest.responseEvent { response in
             print("response: ")
             print(response)
+            self.events = []
             
             let eventsResp = response.result.value
             for i in 0 ... (eventsResp?.count)! - 1{
