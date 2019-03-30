@@ -92,8 +92,6 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
                                             encoding: URLEncoding.methodDependent,
                                             headers: headers)
         eventsRequest.responseEvent { response in
-            print("response: ")
-            print(response)
             self.events = []
             
             let eventsResp = response.result.value

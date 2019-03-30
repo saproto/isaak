@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Down
 
 class EventDetailViewController: UIViewController {
     
@@ -15,6 +16,7 @@ class EventDetailViewController: UIViewController {
     @IBOutlet var startTimeLbl: UILabel!
     @IBOutlet var endTimeLbl: UILabel!
     @IBOutlet var descriptionText: UITextView!
+    
     
     var events: Event = []
     var eventNr: Int = 0
@@ -25,7 +27,16 @@ class EventDetailViewController: UIViewController {
         locationLbl.text = events[eventNr].location
         startTimeLbl.text = Date(timeIntervalSince1970: events[eventNr].start!).readableString()
         endTimeLbl.text = Date(timeIntervalSince1970: events[eventNr].end!).readableString()
-        descriptionText.text = events[eventNr].description
+        //descriptionText.text = events[eventNr].description
+//        let downview = try? DownView(frame: self.descriptionView.bounds, markdownString: events[eventNr].description!){print("done markdown")}
+//        downview?.backgroundColor = UIColor.black
+//        downview?.tintColor = UIColor.white
+//        descriptionView.addSubview(downview!)
+        
+        let down = Down(markdownString: events[eventNr].description!)
+        let descriptionString = try? down.toAttributedString()
+        descriptionText.attributedText = descriptionString
+        descriptionText.textColor = UIColor.white
         // Do any additional setup after loading the view.
     }
     
