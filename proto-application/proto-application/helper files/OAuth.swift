@@ -52,6 +52,21 @@ func tokenRequest(token: Any, completion: @escaping (_ result: Bool) -> Void){
     }
 }
 
+func tryAccessToken(completion: @escaping (_ result: Bool) -> Void){
+    let testReq = Alamofire.request(OAuth.next_withdrawal,
+                                    method: .get,
+                                    parameters: [:],
+                                    encoding: URLEncoding.methodDependent,
+                                    headers: OAuth.headers)
+    testReq.response{response in
+        if String(describing: response).prefix(0) == "<" {
+            completion(false)
+        }else{
+            completion(true)
+        }
+    }
+}
+
 struct OAuthTokenResponse: ResponseObjectSerializable, CustomStringConvertible {
     let access_token: String
     let refresh_token: String

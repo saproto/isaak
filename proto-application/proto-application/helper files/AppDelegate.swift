@@ -7,23 +7,45 @@
 //
 
 import UIKit
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
+    var i: Int = 0
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboardLaunch = UIStoryboard(name: "LaunchScreen", bundle: nil)
         self.window = UIWindow()
+        let logIn = storyboard.instantiateViewController(withIdentifier: "LogIn")
+        let home = storyboard.instantiateViewController(withIdentifier: "Tab")
+        let launch = storyboardLaunch.instantiateViewController(withIdentifier: "launch")
         
         if (keychain.get("access_token") ?? "").isEmpty{
-            let logIn = storyboard.instantiateViewController(withIdentifier: "LogIn")
             self.window?.rootViewController = logIn
         }else{
-            let home = storyboard.instantiateViewController(withIdentifier: "Tab")
-            self.window?.rootViewController = home
+            tryAccessToken(completion: {completion in
+                if completion{
+                    self.window?.rootViewController = home
+                    print("checked, still active")
+                }else{
+                    tokenRequest(token: keychain.get("refresh_token")!, completion: { completion in
+                        if completion{
+                            self.window?.rootViewController = home
+                            print("checked, refreshed token")
+                        }else{
+                            self.window?.rootViewController = logIn
+                            print("checked, tried to refresh but failed.")
+                        }
+                    })
+                }
+            })
+            if ((self.window?.rootViewController) == nil){
+                print("check not finished yet")
+                self.window?.rootViewController = launch
+            }
         }
         self.window?.makeKeyAndVisible()
         
@@ -51,7 +73,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
 
 }
 
