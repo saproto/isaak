@@ -49,28 +49,23 @@ class PurchaseHistoryViewController: UIViewController, UITableViewDataSource {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        let headers: HTTPHeaders = ["Authorization" : "Bearer " + keychain.get("access_token")!]
         
         let orderlinesReq = Alamofire.request(OAuth.orderlines,
                                               method: .get,
                                               parameters: [:],
                                               encoding: URLEncoding.methodDependent,
-                                              headers: headers)
+                                              headers: OAuth.headers)
         orderlinesReq.responseOrderline{ response in
-            DispatchQueue.main.async {
-                self.orderlines = response.result.value!
-                self.orderlines.reverse()
-                self.purchaseTable.reloadData()
-                print(self.orderlines.count)
-            }
-            
+            self.orderlines = response.result.value!
+            self.orderlines.reverse()
+            self.purchaseTable.reloadData()
         }
         
         let totalMonthReq = Alamofire.request(OAuth.total_month,
                                               method: .get,
                                               parameters: [:],
                                               encoding: URLEncoding.methodDependent,
-                                              headers: headers)
+                                              headers: OAuth.headers)
         totalMonthReq.responseString{response in
             DispatchQueue.main.async {
                 self.totalMonthLabel.text = "€" + response.result.value!
@@ -81,7 +76,7 @@ class PurchaseHistoryViewController: UIViewController, UITableViewDataSource {
                                               method: .get,
                                               parameters: [:],
                                               encoding: URLEncoding.methodDependent,
-                                              headers: headers)
+                                              headers: OAuth.headers)
         nextWithdrawalReq.responseString{response in
             DispatchQueue.main.async {
                 self.nextWithdrawalLabel.text = "€" + response.result.value!

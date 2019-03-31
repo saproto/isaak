@@ -26,7 +26,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         Calendar.dataSource = self
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         EventRequest(fromDate: NSDate().timeIntervalSince1970, onlySubscribed: false)
     }
     
@@ -84,13 +84,11 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func EventRequest(fromDate: Double, onlySubscribed: Bool){
         
-        let headers: HTTPHeaders = ["Authorization" : "Bearer " + keychain.get("access_token")!]
-        
         let eventsRequest = Alamofire.request(OAuth.upcomingEvents,
                                             method: .get,
                                             parameters: [:],
                                             encoding: URLEncoding.methodDependent,
-                                            headers: headers)
+                                            headers: OAuth.headers)
         eventsRequest.responseEvent { response in
             self.events = []
             

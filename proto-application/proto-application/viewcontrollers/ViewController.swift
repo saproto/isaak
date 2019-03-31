@@ -20,6 +20,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //print(KeychainWrapper.standard.string(forKey: "access_token")!)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         activityIndicator.isHidden = true //hide activity Indicator
     }
     

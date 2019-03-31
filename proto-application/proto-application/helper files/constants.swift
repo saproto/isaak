@@ -8,6 +8,7 @@
 
 import Foundation
 import KeychainSwift
+import Alamofire
 
 let keychain = KeychainSwift()
 
@@ -23,4 +24,6 @@ struct OAuth {
     static var orderlines = "https://www.proto.utwente.nl/api/user/orders"
     static var total_month = "https://www.proto.utwente.nl/api/user/orders/total_month"
     static var next_withdrawal = "https://www.proto.utwente.nl/api/user/orders/next_withdrawal"
+    static var news = "https://www.proto.utwente.nl/api/news"
+    static var headers: HTTPHeaders = ["Authorization" : "Bearer " + keychain.get("access_token")!]
 }

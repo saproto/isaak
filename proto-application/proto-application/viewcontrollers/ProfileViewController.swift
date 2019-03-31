@@ -18,21 +18,19 @@ class ProfileViewController: UIViewController {
     @IBOutlet var userNameLbl: UILabel!
     var ppUrl: String!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        //super.viewDidLoad()
         profilePicture.layer.cornerRadius = 90
         profilePicture.layer.masksToBounds = true
         profileVIew.layer.cornerRadius = 100
         profileVIew.layer.masksToBounds = true
         // Do any additional setup after loading the view.
         
-        let headers: HTTPHeaders = ["Authorization" : "Bearer " + keychain.get("access_token")!]
-        
         let request = Alamofire.request(OAuth.profileInfo,
                           method: .get,
                           parameters: [:],
                           encoding: URLEncoding.methodDependent,
-                          headers: headers)
+                          headers: OAuth.headers)
         
         request.responseProfileInfo{ response in
             if let profileInfo = response.result.value {
@@ -48,7 +46,7 @@ class ProfileViewController: UIViewController {
                                                method: .get,
                                                parameters: [:],
                                                encoding: URLEncoding.methodDependent,
-                                               headers: headers)
+                                               headers: OAuth.headers)
         
         profPictureReq.responseProfilePicture{ response in
             print(response)
@@ -64,6 +62,11 @@ class ProfileViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func payOmnomcomPressed(_ sender: UIButton) {
+        
+    }
+    
 
     @IBAction func logOutPressed(_ sender: UIButton) {
         keychain.clear()
