@@ -27,9 +27,9 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if isLoggedIn(){
-            self.performSegue(withIdentifier: "toHome", sender: nil)
-        }
+//        if isLoggedIn(){
+//            self.performSegue(withIdentifier: "toHome", sender: nil)
+//        }
     }
 
     @IBAction func LogInPressed(_ sender: UIButton) {

@@ -12,10 +12,21 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        self.window = UIWindow()
+        
+        if (keychain.get("access_token") ?? "").isEmpty{
+            let logIn = storyboard.instantiateViewController(withIdentifier: "LogIn")
+            self.window?.rootViewController = logIn
+        }else{
+            let home = storyboard.instantiateViewController(withIdentifier: "Tab")
+            self.window?.rootViewController = home
+        }
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 
