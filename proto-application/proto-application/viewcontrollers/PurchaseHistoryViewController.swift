@@ -57,7 +57,6 @@ class PurchaseHistoryViewController: UIViewController, UITableViewDataSource {
                                               headers: OAuth.headers)
         orderlinesReq.responseOrderline{ response in
             self.orderlines = response.result.value!
-            self.orderlines.reverse()
             self.purchaseTable.reloadData()
         }
         
@@ -66,9 +65,10 @@ class PurchaseHistoryViewController: UIViewController, UITableViewDataSource {
                                               parameters: [:],
                                               encoding: URLEncoding.methodDependent,
                                               headers: OAuth.headers)
-        totalMonthReq.responseString{response in
+        totalMonthReq.responseJSON{response in
             DispatchQueue.main.async {
-                self.totalMonthLabel.text = "€" + response.result.value!
+                let amount: Double = response.result.value! as! Double
+                self.totalMonthLabel.text = "€" + String(format: "%.2f", amount)
             }
         }
         
@@ -77,9 +77,10 @@ class PurchaseHistoryViewController: UIViewController, UITableViewDataSource {
                                               parameters: [:],
                                               encoding: URLEncoding.methodDependent,
                                               headers: OAuth.headers)
-        nextWithdrawalReq.responseString{response in
+        nextWithdrawalReq.responseJSON{response in
             DispatchQueue.main.async {
-                self.nextWithdrawalLabel.text = "€" + response.result.value!
+                let amount: Double = response.result.value! as! Double
+                self.nextWithdrawalLabel.text = "€" + String(format: "%.2f", amount)
             }
         }
     }
