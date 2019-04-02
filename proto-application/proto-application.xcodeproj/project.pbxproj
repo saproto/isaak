@@ -23,6 +23,8 @@
 		8667E4C82176317000605CC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8667E4C62176317000605CC9 /* LaunchScreen.storyboard */; };
 		8684F73A21C3FA9C00CDF06C /* profilePicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8684F73921C3FA9C00CDF06C /* profilePicture.swift */; };
 		86995B9B219C525800DD63A8 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86995B9A219C525800DD63A8 /* constants.swift */; };
+		86A73D022253B756002316BD /* ProtubeAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A73D012253B756002316BD /* ProtubeAdminViewController.swift */; };
+		86A73D04225414A5002316BD /* ytVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86A73D03225414A5002316BD /* ytVideoCell.swift */; };
 		86AC7B29219789550064C780 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AC7B28219789550064C780 /* EventCell.swift */; };
 		86AC7B2B2198E3110064C780 /* PurchaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AC7B2A2198E3110064C780 /* PurchaseCell.swift */; };
 		86C0242F225005BD005EA123 /* newsArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C0242E225005BD005EA123 /* newsArticleCell.swift */; };
@@ -69,6 +71,8 @@
 		8667E4C92176317000605CC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8684F73921C3FA9C00CDF06C /* profilePicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profilePicture.swift; sourceTree = "<group>"; };
 		86995B9A219C525800DD63A8 /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
+		86A73D012253B756002316BD /* ProtubeAdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtubeAdminViewController.swift; sourceTree = "<group>"; };
+		86A73D03225414A5002316BD /* ytVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ytVideoCell.swift; sourceTree = "<group>"; };
 		86AC7B28219789550064C780 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		86AC7B2A2198E3110064C780 /* PurchaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCell.swift; sourceTree = "<group>"; };
 		86C0242E225005BD005EA123 /* newsArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newsArticleCell.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 				86AC7B2A2198E3110064C780 /* PurchaseCell.swift */,
 				86C0242E225005BD005EA123 /* newsArticleCell.swift */,
 				86AC7B28219789550064C780 /* EventCell.swift */,
+				86A73D03225414A5002316BD /* ytVideoCell.swift */,
 			);
 			path = "Table Cells";
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 				8667E4BF2176316E00605CC9 /* ViewController.swift */,
 				86305C332190AD540001435B /* HomeViewController.swift */,
 				86C0243222502138005EA123 /* articleViewController.swift */,
+				86A73D012253B756002316BD /* ProtubeAdminViewController.swift */,
 				86305C352190ADA10001435B /* CalendarViewController.swift */,
 				8633724121A46DB700DC8061 /* EventDetailViewController.swift */,
 				86305C392190ADCE0001435B /* ProfileViewController.swift */,
@@ -403,7 +409,9 @@
 				86DD8FE921C11F91001F3CF7 /* ProfileInfo.swift in Sources */,
 				8667E4C02176316E00605CC9 /* ViewController.swift in Sources */,
 				8667E4BE2176316E00605CC9 /* AppDelegate.swift in Sources */,
+				86A73D022253B756002316BD /* ProtubeAdminViewController.swift in Sources */,
 				86C0243322502138005EA123 /* articleViewController.swift in Sources */,
+				86A73D04225414A5002316BD /* ytVideoCell.swift in Sources */,
 				86305C342190AD540001435B /* HomeViewController.swift in Sources */,
 				86DE7F2A2191FE8F00F35841 /* FSCalendarDelegationProxy.m in Sources */,
 				86C0243122500DCD005EA123 /* news.swift in Sources */,
@@ -566,7 +574,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "nl.saproto.proto-application";
+				PRODUCT_BUNDLE_IDENTIFIER = nl.saproto.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "proto-application/helper files/bridging-header.h";
 				SWIFT_VERSION = 4.2;
@@ -587,7 +595,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "nl.saproto.proto-application";
+				PRODUCT_BUNDLE_IDENTIFIER = nl.saproto.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "proto-application/helper files/bridging-header.h";
 				SWIFT_VERSION = 4.2;

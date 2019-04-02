@@ -67,6 +67,9 @@ class ProfileViewController: UIViewController {
         
     }
     
+    @IBAction func ProtubeAdminPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "toProtubeAdmin", sender: nil)
+    }
 
     @IBAction func logOutPressed(_ sender: UIButton) {
         keychain.clear()

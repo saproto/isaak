@@ -14,5 +14,7 @@ target 'proto-application' do
   pod 'KeychainSwift', '~> 13.0'
   pod 'FSCalendar'
   pod 'Down'
+  #pod 'Starscream', '~> 3.1.0'
+  #pod 'Socket.IO-Client-Swift', '~> 15.0.0'
   
 end

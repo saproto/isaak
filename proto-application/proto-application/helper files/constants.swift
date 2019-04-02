@@ -16,7 +16,7 @@ struct OAuth {
     static var consumerKey = "3"
     static var consumerSecret = "sXnj8OzgsAe2do4Gb0fjmZBAESQwt2lruqPLvR8y"
     static var authorizeURL = "https://www.proto.utwente.nl/oauth/authorize?client_id=3&response_type=code&redirect_uri=saproto://oauth_callback&scope=*"
-    static var  accesTokenURL = "https://proto.utwente.nl/oauth/token"
+    static var accesTokenURL = "https://proto.utwente.nl/oauth/token"
     static var callbackURL = "saproto://oauth_callback"
     static var profileInfo = "https://www.proto.utwente.nl/api/user/info"
     static var upcomingEvents = "https://www.proto.utwente.nl/api/events/upcoming"
@@ -25,5 +25,7 @@ struct OAuth {
     static var total_month = "https://www.proto.utwente.nl/api/user/orders/total_month"
     static var next_withdrawal = "https://www.proto.utwente.nl/api/user/orders/next_withdrawal"
     static var news = "https://www.proto.utwente.nl/api/news"
+    static var qrOmnom = "http://saproto/api/user/qr_auth_approve/"
+    static var protubeToken = "https://www.proto.utwente.nl/api/user/token"
     static var headers: HTTPHeaders = ["Authorization" : "Bearer " + keychain.get("access_token")!]
 }

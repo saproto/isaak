@@ -1,8 +1,8 @@
 PODS:
-  - Alamofire (4.8.1)
-  - AlamofireImage (3.5.0):
+  - Alamofire (4.8.2)
+  - AlamofireImage (3.5.2):
     - Alamofire (~> 4.8)
-  - Down (0.6.2)
+  - Down (0.6.5)
   - FSCalendar (2.8.0)
   - KeychainSwift (13.0.0)
 
@@ -22,12 +22,12 @@ SPEC REPOS:
     - KeychainSwift
 
 SPEC CHECKSUMS:
-  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
-  AlamofireImage: 1aea346f4dda2f6c67622fa5a89fcbb80d79cc16
-  Down: 8c59a03cb229ef28dfa774b2132da860f3dee0ac
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
+  Down: b91ef4869bf342eb3094e6ce0c68dbadb0029f7f
   FSCalendar: 3a5ed3636e2ba1b83ebebfcf0c2603105a6f5efe
   KeychainSwift: 23d6c16cbc33f20fafa30c3d783241b4b87d998c
 
-PODFILE CHECKSUM: 4c7f514ad31476a757dc55920e82115b0f8e0316
+PODFILE CHECKSUM: 15a90d72f92c26618f6c3ee7784fa1224c603e7b
 
 COCOAPODS: 1.5.2
