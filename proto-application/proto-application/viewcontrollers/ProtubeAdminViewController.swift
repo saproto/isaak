@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import SocketIO
+import Alamofire
 
 class ProtubeAdminViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
+    @IBOutlet var searchResultsTable: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -16,9 +21,14 @@ class ProtubeAdminViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ytVideoCell") as! ytVideoCell
+        
+        cell.artist.text = "AdeleVEVO"
+        cell.duration.text = "06:07"
+        cell.title.text = "Adele - Hello"
+        cell.thumbnailURL = "YQHsXMglC9A"
+        
         return cell
     }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,15 +36,29 @@ class ProtubeAdminViewController: UIViewController, UITableViewDelegate, UITable
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        searchResultsTable.dataSource = self
+        searchResultsTable.delegate = self
+        searchResultsTable.rowHeight = 280
+        retrieveProtubeToken()
     }
-    */
-
+    
+    @IBAction func searchButtonPressed(_ sender: Any) {
+        searchResultsTable.reloadData()
+    }
+    
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func retrieveProtubeToken(){
+        let protubeTokenReq = Alamofire.request(OAuth.protubeToken,
+                                              method: .get,
+                                              parameters: [:],
+                                              encoding: URLEncoding.methodDependent,
+                                              headers: OAuth.headers)
+        protubeTokenReq.responseProtubeToken{ response in
+            keychain.set(response.result.value!.token!, forKey: "protubeToken")
+        }
+    }
 }

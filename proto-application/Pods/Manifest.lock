@@ -5,6 +5,9 @@ PODS:
   - Down (0.6.5)
   - FSCalendar (2.8.0)
   - KeychainSwift (13.0.0)
+  - Socket.IO-Client-Swift (15.0.0):
+    - Starscream (~> 3.1)
+  - Starscream (3.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
@@ -12,6 +15,8 @@ DEPENDENCIES:
   - Down
   - FSCalendar
   - KeychainSwift (~> 13.0)
+  - Socket.IO-Client-Swift (~> 15.0.0)
+  - Starscream (~> 3.1.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -20,6 +25,8 @@ SPEC REPOS:
     - Down
     - FSCalendar
     - KeychainSwift
+    - Socket.IO-Client-Swift
+    - Starscream
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
@@ -27,7 +34,9 @@ SPEC CHECKSUMS:
   Down: b91ef4869bf342eb3094e6ce0c68dbadb0029f7f
   FSCalendar: 3a5ed3636e2ba1b83ebebfcf0c2603105a6f5efe
   KeychainSwift: 23d6c16cbc33f20fafa30c3d783241b4b87d998c
+  Socket.IO-Client-Swift: c039a808195d22a7192962841b8c035cb61ea49e
+  Starscream: 08172b481e145289c4930cb567230fb55897cfa4
 
-PODFILE CHECKSUM: 15a90d72f92c26618f6c3ee7784fa1224c603e7b
+PODFILE CHECKSUM: 015f71303adabe99b7ac1591c7e984e4f14471b7
 
 COCOAPODS: 1.5.2
