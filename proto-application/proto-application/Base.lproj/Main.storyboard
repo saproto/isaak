@@ -137,7 +137,7 @@
                                 </state>
                                 <connections>
                                     <action selector="logOutPressed:" destination="GIM-OT-nJ5" eventType="touchUpInside" id="dCd-DW-aBt"/>
-                                    <segue destination="iz6-pr-q9x" kind="unwind" identifier="unwindToLogIn" unwindAction="unwindToLogInViewWithSegue:" id="hY2-OD-Brl"/>
+                                    <segue destination="iz6-pr-q9x" kind="unwind" identifier="unwindToLogIn" unwindAction="unwindToLogInViewWithSegue:" id="TPS-zx-T3Z"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cop-PQ-s2F">
