@@ -9,8 +9,10 @@
 import Foundation
 import KeychainSwift
 import Alamofire
+import SocketIO
 
 let keychain = KeychainSwift()
+
 
 struct OAuth {
     static var consumerKey = "3"
@@ -27,5 +29,4 @@ struct OAuth {
     static var news = "https://www.proto.utwente.nl/api/news"
     static var qrOmnom = "http://saproto/api/user/qr_auth_approve/"
     static var protubeToken = "https://www.proto.utwente.nl/api/user/token"
-    static var headers: HTTPHeaders = ["Authorization" : "Bearer " + keychain.get("access_token")!]
 }

@@ -10,6 +10,8 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
+var headers: HTTPHeaders = ["Authorization" : "Bearer " + keychain.get("access_token")!]
+
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var newsTable: UITableView!
@@ -33,7 +35,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }else{
             cell.title.textColor = UIColor.white
             var url = news[indexPath.row].featuredImageURL!
-            url = url.dropLast(3) + "300"
+            url = url.dropLast(3) + "400"
             Alamofire.request(url).responseImage{ response in
                 if let image = response.result.value{
                     DispatchQueue.main.async {
@@ -60,6 +62,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         getNews(completion: { completion in
             self.newsTable.reloadData()
         })
+        retrieveProtubeToken()
     }
     
     func getNews(completion: @escaping (_ result: Bool) -> Void){

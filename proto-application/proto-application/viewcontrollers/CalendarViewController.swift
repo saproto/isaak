@@ -88,7 +88,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
                                             method: .get,
                                             parameters: [:],
                                             encoding: URLEncoding.methodDependent,
-                                            headers: OAuth.headers)
+                                            headers: headers)
         eventsRequest.responseEvent { response in
             self.events = []
             

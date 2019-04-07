@@ -21,6 +21,17 @@ func isLoggedIn() -> Bool{
 
 }
 
+func retrieveProtubeToken(){
+    let protubeTokenReq = Alamofire.request(OAuth.protubeToken,
+                                            method: .get,
+                                            parameters: [:],
+                                            encoding: URLEncoding.methodDependent,
+                                            headers: headers)
+    protubeTokenReq.responseProtubeToken{ response in
+        keychain.set(response.result.value!.token!, forKey: "protube_token")
+    }
+}
+
 func tokenRequest(token: Any, completion: @escaping (_ result: Bool) -> Void){
     
     let headers: HTTPHeaders = [
@@ -57,7 +68,7 @@ func tryAccessToken(completion: @escaping (_ result: Bool) -> Void){
                                     method: .get,
                                     parameters: [:],
                                     encoding: URLEncoding.methodDependent,
-                                    headers: OAuth.headers)
+                                    headers: headers)
     testReq.response{response in
         if String(describing: response).prefix(0) == "<" {
             completion(false)

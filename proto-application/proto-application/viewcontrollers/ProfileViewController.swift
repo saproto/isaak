@@ -16,6 +16,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet var profileVIew: UIView!
     @IBOutlet var welcomeMessageLbl: UILabel!
     @IBOutlet var userNameLbl: UILabel!
+    @IBAction func unwindToProfileView (segue:UIStoryboardSegue){}
     var ppUrl: String!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,7 +31,7 @@ class ProfileViewController: UIViewController {
                           method: .get,
                           parameters: [:],
                           encoding: URLEncoding.methodDependent,
-                          headers: OAuth.headers)
+                          headers: headers)
         
         request.responseProfileInfo{ response in
             if let profileInfo = response.result.value {
@@ -46,7 +47,7 @@ class ProfileViewController: UIViewController {
                                                method: .get,
                                                parameters: [:],
                                                encoding: URLEncoding.methodDependent,
-                                               headers: OAuth.headers)
+                                               headers: headers)
         
         profPictureReq.responseProfilePicture{ response in
             print(response)
@@ -68,7 +69,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func ProtubeAdminPressed(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "toProtubeAdmin", sender: nil)
+        self.performSegue(withIdentifier: "showPinInput", sender: nil)
     }
 
     @IBAction func logOutPressed(_ sender: UIButton) {

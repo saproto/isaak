@@ -8,10 +8,8 @@
 
 import UIKit
 import SocketIO
-import Alamofire
 
 class ProtubeAdminViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
     
     @IBOutlet var searchResultsTable: UITableView!
     
@@ -32,15 +30,19 @@ class ProtubeAdminViewController: UIViewController, UITableViewDelegate, UITable
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         searchResultsTable.dataSource = self
         searchResultsTable.delegate = self
-        searchResultsTable.rowHeight = 280
-        retrieveProtubeToken()
+        searchResultsTable.rowHeight = 275
+        addHandlers()
+        
+        protube.on("authenticated"){ data, ack in
+            
+        }
+    }
+    override func viewDidAppear(_ animated: Bool) {
     }
     
     @IBAction func searchButtonPressed(_ sender: Any) {
@@ -48,17 +50,10 @@ class ProtubeAdminViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.performSegue(withIdentifier: "backToProfile", sender: nil)
     }
     
-    func retrieveProtubeToken(){
-        let protubeTokenReq = Alamofire.request(OAuth.protubeToken,
-                                              method: .get,
-                                              parameters: [:],
-                                              encoding: URLEncoding.methodDependent,
-                                              headers: OAuth.headers)
-        protubeTokenReq.responseProtubeToken{ response in
-            keychain.set(response.result.value!.token!, forKey: "protubeToken")
-        }
+    func addHandlers(){
+        
     }
 }

@@ -54,7 +54,7 @@ class PurchaseHistoryViewController: UIViewController, UITableViewDataSource {
                                               method: .get,
                                               parameters: [:],
                                               encoding: URLEncoding.methodDependent,
-                                              headers: OAuth.headers)
+                                              headers: headers)
         orderlinesReq.responseOrderline{ response in
             self.orderlines = response.result.value!
             self.purchaseTable.reloadData()
@@ -64,7 +64,7 @@ class PurchaseHistoryViewController: UIViewController, UITableViewDataSource {
                                               method: .get,
                                               parameters: [:],
                                               encoding: URLEncoding.methodDependent,
-                                              headers: OAuth.headers)
+                                              headers: headers)
         totalMonthReq.responseJSON{response in
             DispatchQueue.main.async {
                 let amount: Double = response.result.value! as! Double
@@ -76,7 +76,7 @@ class PurchaseHistoryViewController: UIViewController, UITableViewDataSource {
                                               method: .get,
                                               parameters: [:],
                                               encoding: URLEncoding.methodDependent,
-                                              headers: OAuth.headers)
+                                              headers: headers)
         nextWithdrawalReq.responseJSON{response in
             DispatchQueue.main.async {
                 let amount: Double = response.result.value! as! Double
