@@ -762,7 +762,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Is9-XP-FDl">
-                                                    <rect key="frame" x="23" y="162.5" width="261" height="25"/>
+                                                    <rect key="frame" x="23" y="180" width="261" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="T9h-a3-6J6"/>
                                                     </constraints>
@@ -790,7 +790,6 @@
                                             <constraints>
                                                 <constraint firstItem="FxW-aA-b3w" firstAttribute="leading" secondItem="ZyK-Jx-3tE" secondAttribute="trailing" constant="8" id="144-v8-ogW"/>
                                                 <constraint firstItem="FxW-aA-b3w" firstAttribute="top" secondItem="gAe-Jm-XMA" secondAttribute="bottom" constant="8" id="5Yi-zQ-Ap5"/>
-                                                <constraint firstItem="r2G-ft-E2X" firstAttribute="centerY" secondItem="Is9-XP-FDl" secondAttribute="centerY" id="5lM-pg-psi"/>
                                                 <constraint firstItem="gAe-Jm-XMA" firstAttribute="centerY" secondItem="Ppk-rn-Ag3" secondAttribute="centerY" id="5sE-K6-qqo"/>
                                                 <constraint firstItem="r2G-ft-E2X" firstAttribute="trailing" secondItem="gsl-LT-bVG" secondAttribute="trailingMargin" id="6v2-ay-ib6"/>
                                                 <constraint firstItem="r2G-ft-E2X" firstAttribute="leading" secondItem="Is9-XP-FDl" secondAttribute="trailing" constant="16" id="B1S-cV-v8i"/>
@@ -800,6 +799,7 @@
                                                 <constraint firstItem="ZyK-Jx-3tE" firstAttribute="leading" secondItem="gsl-LT-bVG" secondAttribute="leadingMargin" id="I2d-Wj-Ku3"/>
                                                 <constraint firstItem="Is9-XP-FDl" firstAttribute="leading" secondItem="gsl-LT-bVG" secondAttribute="leadingMargin" constant="8" id="RGf-4B-jyh"/>
                                                 <constraint firstItem="Y5p-3z-Ml8" firstAttribute="trailing" secondItem="gsl-LT-bVG" secondAttribute="trailingMargin" id="THF-dx-QnV"/>
+                                                <constraint firstItem="gAe-Jm-XMA" firstAttribute="top" secondItem="Is9-XP-FDl" secondAttribute="bottom" constant="8" id="UcZ-uV-Vr6"/>
                                                 <constraint firstItem="Ppk-rn-Ag3" firstAttribute="leading" secondItem="gsl-LT-bVG" secondAttribute="leadingMargin" id="XTK-LE-wtP"/>
                                                 <constraint firstItem="Ppk-rn-Ag3" firstAttribute="top" secondItem="Y5p-3z-Ml8" secondAttribute="bottom" constant="8" id="Ydf-P3-TmM"/>
                                                 <constraint firstItem="Y5p-3z-Ml8" firstAttribute="bottom" secondItem="r2G-ft-E2X" secondAttribute="bottom" id="Z5j-lr-t3z"/>
@@ -856,14 +856,19 @@
                                     <segue destination="Mfc-nO-751" kind="unwind" identifier="backToProfile" unwindAction="unwindToProfileViewWithSegue:" id="5Dd-6v-nfD"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="4VT-hF-dHg">
+                                <rect key="frame" x="231" y="71" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.5568627451" green="0.83953450519999995" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="ExX-Tu-GfO" firstAttribute="leading" secondItem="4VT-hF-dHg" secondAttribute="trailing" constant="8" id="0Lz-N4-hc4"/>
                             <constraint firstItem="rz5-wp-mK1" firstAttribute="leading" secondItem="RAn-Ox-70a" secondAttribute="leading" id="3S4-GG-rep"/>
                             <constraint firstItem="wNy-rR-NMu" firstAttribute="top" secondItem="1ff-Ap-j6s" secondAttribute="bottom" constant="8" id="4vT-Ba-jwb"/>
                             <constraint firstItem="wNy-rR-NMu" firstAttribute="leading" secondItem="RAn-Ox-70a" secondAttribute="leading" constant="16" id="6Hl-f6-zjf"/>
                             <constraint firstItem="RAn-Ox-70a" firstAttribute="trailing" secondItem="ExX-Tu-GfO" secondAttribute="trailing" constant="16" id="B7m-qj-9p1"/>
                             <constraint firstItem="EbU-up-qmx" firstAttribute="top" secondItem="RAn-Ox-70a" secondAttribute="top" constant="8" id="Epe-vM-YlX"/>
+                            <constraint firstItem="ExX-Tu-GfO" firstAttribute="centerY" secondItem="4VT-hF-dHg" secondAttribute="centerY" id="Khg-nf-I5V"/>
                             <constraint firstItem="rz5-wp-mK1" firstAttribute="top" secondItem="ExX-Tu-GfO" secondAttribute="bottom" constant="8" id="LJc-g6-STW"/>
                             <constraint firstItem="ExX-Tu-GfO" firstAttribute="top" secondItem="1ff-Ap-j6s" secondAttribute="bottom" constant="8" id="WpB-Ix-KVw"/>
                             <constraint firstItem="RAn-Ox-70a" firstAttribute="trailing" secondItem="1ff-Ap-j6s" secondAttribute="trailing" constant="16" id="nBf-Qi-ftY"/>
@@ -877,7 +882,10 @@
                         <viewLayoutGuide key="safeArea" id="RAn-Ox-70a"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="4VT-hF-dHg" id="PYR-e8-Y6K"/>
                         <outlet property="searchResultsTable" destination="rz5-wp-mK1" id="IMd-ZL-OxX"/>
+                        <outlet property="searchText" destination="1ff-Ap-j6s" id="FDh-hR-4em"/>
+                        <outlet property="showVideoSelector" destination="wNy-rR-NMu" id="S8t-Px-vpP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="87X-l2-CEB" userLabel="First Responder" sceneMemberID="firstResponder"/>

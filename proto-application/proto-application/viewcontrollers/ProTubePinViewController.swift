@@ -10,8 +10,8 @@ import UIKit
 import SocketIO
 import Alamofire
 
-let manager = SocketManager(socketURL: URL(string: "wss://metis.proto.utwente.nl:3001")!, config: [.log(true)])
-let protube = manager.defaultSocket
+let manager = SocketManager(socketURL: URL(string: "wss://metis.proto.utwente.nl:3001")!, config: [.log(true), .secure(true)])
+let protube = manager.socket(forNamespace: "/protube-remote")
 
 class ProTubePinViewController: UIViewController, UITextFieldDelegate {
 
@@ -29,13 +29,32 @@ class ProTubePinViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         protube.on(clientEvent: .connect) {data, ack in
             print("socket connected")
-            protube.emit("token", keychain.get("protube_token")!)
+            //protube.emit("token", keychain.get("protube_token")!)
         }
         //protube.emit("token", keychain.get("protube_token")!)
         //print("tried to emit token")
         //print(keychain.get("protube_token")!)
         protube.on("authenticated"){ data, ack in
-            self.performSegue(withIdentifier: "toPTRemote", sender: nil)
+            print(data)
+            var authenticated : [Bool] = data as! [Bool]
+            if authenticated[0]{
+                self.performSegue(withIdentifier: "toPTRemote", sender: nil)
+            }else{
+                self.digit1.text = ""
+                self.digit2.text = ""
+                self.digit3.text = ""
+                self.digit1.isUserInteractionEnabled = true
+                self.digit2.isUserInteractionEnabled = true
+                self.digit3.isUserInteractionEnabled = true
+                self.digit1.becomeFirstResponder()
+                
+                let controller = UIAlertController(title: "Wrong pincode", message: "Please fill in the pincode that's visible on the screen in the Protopolis.", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+                controller.addAction(ok)
+                self.present(controller, animated: true, completion: nil)
+                
+                
+            }
         }
     }
     
@@ -69,17 +88,18 @@ class ProTubePinViewController: UIViewController, UITextFieldDelegate {
     }
     
     func tryPinCode(){
+        protube.emit("token", keychain.get("protube_token")!)
         
         let pin = digit1.text! + digit2.text! + digit3.text!
-        print(pin)
-        let pinMes = "{\"pin\", \(pin)}"
-        print(pinMes)
+        //let pinMes = "{'pin': \(pin)}"
+        //print(pinMes)
         
-        protube.emit("pin", pinMes)
+        protube.emit("authenticate", ["pin": pin])
     }
     
     @IBAction func cancelBtnPressed(_ sender: Any) {
         self.dismiss(animated: false, completion: nil)
+        protube.disconnect()
     }
     
     

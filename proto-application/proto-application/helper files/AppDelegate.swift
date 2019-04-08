@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let launch = storyboardLaunch.instantiateViewController(withIdentifier: "launch")
         
         if (keychain.get("access_token") ?? "").isEmpty{
+            print("not logged in")
             self.window?.rootViewController = logIn
         }else{
             tryAccessToken(completion: {completion in

@@ -12,7 +12,7 @@ import AlamofireImage
 
 class ytVideoCell: UITableViewCell {
 
-    var thumbnailURL: String = String()
+    var thumbnailURL: String = ""
     @IBOutlet var Thumbnail: UIImageView!
     @IBOutlet var title: UILabel!
     @IBOutlet var artist: UILabel!
@@ -21,14 +21,7 @@ class ytVideoCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        let thumbnailReq = Alamofire.request("https://img.youtube.com/vi/" + thumbnailURL + "/0.jpg")
-        thumbnailReq.responseImage{ response in
-            DispatchQueue.main.async{
-                if let image = response.result.value{
-                    self.Thumbnail.image = image
-                }
-            }
-        }
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
