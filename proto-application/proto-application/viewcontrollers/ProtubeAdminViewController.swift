@@ -34,9 +34,9 @@ class ProtubeAdminViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ytVideoCell") as! ytVideoCell
         
-        cell.artist.text = results[indexPath.row].object(forKey: "channelTitle") as! String
-        cell.duration.text = results[indexPath.row].object(forKey: "duration") as! String
-        cell.title.text = results[indexPath.row].object(forKey: "title") as! String
+        cell.artist.text = results[indexPath.row].object(forKey: "channelTitle") as? String
+        cell.duration.text = results[indexPath.row].object(forKey: "duration") as? String
+        cell.title.text = results[indexPath.row].object(forKey: "title") as? String
         
         let thumbnailReq = Alamofire.request("https://img.youtube.com/vi/" + (results[indexPath.row].object(forKey: "id") as! String) + "/0.jpg")
         thumbnailReq.responseImage{ response in
@@ -83,6 +83,7 @@ class ProtubeAdminViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
+        protube.disconnect()
         self.performSegue(withIdentifier: "backToProfile", sender: nil)
     }
     
