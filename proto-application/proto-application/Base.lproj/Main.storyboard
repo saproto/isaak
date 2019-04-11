@@ -183,12 +183,58 @@
                         <outlet property="profileVIew" destination="6oo-9X-gBZ" id="cXL-Ts-yRY"/>
                         <outlet property="userNameLbl" destination="erT-yF-h4s" id="qE5-Cx-MTI"/>
                         <outlet property="welcomeMessageLbl" destination="gpm-F4-tZa" id="Luy-2h-Paw"/>
+                        <segue destination="miG-ZN-cOR" kind="presentation" identifier="toPayOmnomcom" id="6em-OH-SaE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AkS-Ip-fwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="iz6-pr-q9x" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1752.8" y="643.62818590704649"/>
+        </scene>
+        <!--OmnomcomQR View Controller-->
+        <scene sceneID="0Iv-2N-kzu">
+            <objects>
+                <viewController id="miG-ZN-cOR" customClass="OmnomcomQRViewController" customModule="proto_application" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GD0-uD-eMn" userLabel="QRView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="7og-bc-1HZ" userLabel="previewView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" barStyle="black" backIndicatorImage="menu" translatesAutoresizingMaskIntoConstraints="NO" id="11i-cu-gac">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Pay OmNomCom" id="pz6-fI-oAV">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="DFp-UI-GBG">
+                                            <connections>
+                                                <action selector="BackPressed:" destination="miG-ZN-cOR" id="OeK-0m-Yvd"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7og-bc-1HZ" firstAttribute="bottom" secondItem="HYX-TI-LCY" secondAttribute="bottom" id="85C-RI-5Ah"/>
+                            <constraint firstItem="7og-bc-1HZ" firstAttribute="trailing" secondItem="HYX-TI-LCY" secondAttribute="trailing" id="BOU-SI-33h"/>
+                            <constraint firstItem="7og-bc-1HZ" firstAttribute="top" secondItem="HYX-TI-LCY" secondAttribute="top" id="ItW-fe-0ea"/>
+                            <constraint firstItem="11i-cu-gac" firstAttribute="leading" secondItem="HYX-TI-LCY" secondAttribute="leading" id="M9v-I1-uwn"/>
+                            <constraint firstItem="11i-cu-gac" firstAttribute="top" secondItem="HYX-TI-LCY" secondAttribute="top" id="bCr-KM-epf"/>
+                            <constraint firstItem="7og-bc-1HZ" firstAttribute="leading" secondItem="HYX-TI-LCY" secondAttribute="leading" id="sKc-e5-I9C"/>
+                            <constraint firstItem="11i-cu-gac" firstAttribute="trailing" secondItem="HYX-TI-LCY" secondAttribute="trailing" id="u6o-oy-I1c"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HYX-TI-LCY"/>
+                    </view>
+                    <connections>
+                        <outlet property="previewView" destination="7og-bc-1HZ" id="b2n-Dq-Ym4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4MB-wN-bq5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2665" y="1414"/>
         </scene>
         <!--Data Source-->
         <scene sceneID="DEg-Sh-Dg6">
@@ -858,6 +904,7 @@
         <image name="info" width="96" height="96"/>
         <image name="logo" width="481" height="266.39999389648438"/>
         <image name="marker" width="96" height="96"/>
+        <image name="menu" width="500" height="500"/>
         <image name="profile" width="30" height="30"/>
     </resources>
 </document>

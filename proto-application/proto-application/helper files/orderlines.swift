@@ -19,12 +19,13 @@ typealias Orderline = [OrderlineElement]
 
 struct OrderlineElement: Codable {
     let id, userID: Int?
-    let cashierID: JSONNull?
+    let cashierID: Int?
     let productID: Int?
     let originalUnitPrice: Double?
     let units: Int?
     let totalPrice: Double?
-    let payedWithCash, payedWithMollie: Int?
+    let payedWithCash: String?
+    let payedWithMollie: JSONNull?
     let payedWithWithdrawal: Int?
     let description: JSONNull?
     let createdAt, updatedAt: String?

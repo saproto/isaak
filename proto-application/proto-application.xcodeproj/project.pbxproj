@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		38C4CB9FD42C5FA28D783D88 /* Pods_proto_application.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E0624043213A9A74E0A81AE /* Pods_proto_application.framework */; };
+		8602B7C4225CF44F00C89037 /* OmnomcomQRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8602B7C3225CF44F00C89037 /* OmnomcomQRViewController.swift */; };
 		86305C342190AD540001435B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86305C332190AD540001435B /* HomeViewController.swift */; };
 		86305C362190ADA10001435B /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86305C352190ADA10001435B /* CalendarViewController.swift */; };
 		86305C382190ADB50001435B /* PurchaseHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86305C372190ADB50001435B /* PurchaseHistoryViewController.swift */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		343A668FD495960847C85FD6 /* Pods-proto-application.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-proto-application.debug.xcconfig"; path = "Pods/Target Support Files/Pods-proto-application/Pods-proto-application.debug.xcconfig"; sourceTree = "<group>"; };
 		6E0624043213A9A74E0A81AE /* Pods_proto_application.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_proto_application.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8602B7C3225CF44F00C89037 /* OmnomcomQRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmnomcomQRViewController.swift; sourceTree = "<group>"; };
 		86305C332190AD540001435B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		86305C352190ADA10001435B /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		86305C372190ADB50001435B /* PurchaseHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistoryViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				8667E4BF2176316E00605CC9 /* ViewController.swift */,
 				86305C332190AD540001435B /* HomeViewController.swift */,
 				86C0243222502138005EA123 /* articleViewController.swift */,
+				8602B7C3225CF44F00C89037 /* OmnomcomQRViewController.swift */,
 				86305C352190ADA10001435B /* CalendarViewController.swift */,
 				8633724121A46DB700DC8061 /* EventDetailViewController.swift */,
 				86305C392190ADCE0001435B /* ProfileViewController.swift */,
@@ -403,6 +406,7 @@
 				86DD8FE921C11F91001F3CF7 /* ProfileInfo.swift in Sources */,
 				8667E4C02176316E00605CC9 /* ViewController.swift in Sources */,
 				8667E4BE2176316E00605CC9 /* AppDelegate.swift in Sources */,
+				8602B7C4225CF44F00C89037 /* OmnomcomQRViewController.swift in Sources */,
 				86C0243322502138005EA123 /* articleViewController.swift in Sources */,
 				86305C342190AD540001435B /* HomeViewController.swift in Sources */,
 				86DE7F2A2191FE8F00F35841 /* FSCalendarDelegationProxy.m in Sources */,

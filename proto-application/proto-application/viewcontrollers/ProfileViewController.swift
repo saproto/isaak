@@ -64,7 +64,7 @@ class ProfileViewController: UIViewController {
     }
     
     @IBAction func payOmnomcomPressed(_ sender: UIButton) {
-        
+        self.performSegue(withIdentifier: "toPayOmnomcom", sender: nil)
     }
     
 
