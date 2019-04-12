@@ -570,7 +570,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "nl.saproto.proto-application";
+				PRODUCT_BUNDLE_IDENTIFIER = nl.saproto.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "proto-application/helper files/bridging-header.h";
 				SWIFT_VERSION = 4.2;
@@ -591,7 +591,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "nl.saproto.proto-application";
+				PRODUCT_BUNDLE_IDENTIFIER = nl.saproto.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "proto-application/helper files/bridging-header.h";
 				SWIFT_VERSION = 4.2;

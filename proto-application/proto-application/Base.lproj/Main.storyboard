@@ -137,7 +137,7 @@
                                 </state>
                                 <connections>
                                     <action selector="logOutPressed:" destination="GIM-OT-nJ5" eventType="touchUpInside" id="dCd-DW-aBt"/>
-                                    <segue destination="iz6-pr-q9x" kind="unwind" identifier="unwindToLogIn" unwindAction="unwindToLogInViewWithSegue:" id="TPS-zx-T3Z"/>
+                                    <segue destination="iz6-pr-q9x" kind="unwind" identifier="unwindToLogIn" unwindAction="unwindToLogInViewWithSegue:" id="366-G9-Ljr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cop-PQ-s2F">
@@ -839,38 +839,53 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Q2-vd-rv1">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="170"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="170" id="CpW-9a-pbD"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3A-kw-dRZ">
-                                <rect key="frame" x="16" y="178" width="343" height="24"/>
+                                <rect key="frame" x="16" y="242" width="343" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" red="0.5568627451" green="0.83953450519999995" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Mcj-e5-tir">
-                                <rect key="frame" x="16" y="218" width="343" height="429"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Mcj-e5-tir">
+                                <rect key="frame" x="16" y="282" width="343" height="365"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lt6-21-8fw">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem id="xNh-N6-LLb">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="KFD-Mf-ynW">
+                                            <connections>
+                                                <action selector="backPressed:" destination="Py9-3D-D7s" id="n4d-Mh-ufd"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="h3A-kw-dRZ" firstAttribute="top" secondItem="8Q2-vd-rv1" secondAttribute="bottom" constant="8" id="2T4-KN-0nk"/>
+                            <constraint firstItem="Lt6-21-8fw" firstAttribute="leading" secondItem="xyX-BE-bm1" secondAttribute="leading" id="4kS-sJ-Xhy"/>
                             <constraint firstItem="8Q2-vd-rv1" firstAttribute="leading" secondItem="xyX-BE-bm1" secondAttribute="leading" id="7Yg-qg-ONr"/>
                             <constraint firstItem="h3A-kw-dRZ" firstAttribute="leading" secondItem="xyX-BE-bm1" secondAttribute="leading" constant="16" id="KaP-d5-en8"/>
                             <constraint firstItem="xyX-BE-bm1" firstAttribute="bottom" secondItem="Mcj-e5-tir" secondAttribute="bottom" constant="20" id="Knq-ne-VSP"/>
                             <constraint firstItem="xyX-BE-bm1" firstAttribute="trailing" secondItem="Mcj-e5-tir" secondAttribute="trailing" constant="16" id="LEz-DW-MmD"/>
                             <constraint firstItem="Mcj-e5-tir" firstAttribute="top" secondItem="h3A-kw-dRZ" secondAttribute="bottom" constant="16" id="YgQ-MQ-oFE"/>
                             <constraint firstItem="Mcj-e5-tir" firstAttribute="leading" secondItem="xyX-BE-bm1" secondAttribute="leading" constant="16" id="Zkp-E1-Nhv"/>
-                            <constraint firstItem="8Q2-vd-rv1" firstAttribute="top" secondItem="0E9-d2-opk" secondAttribute="top" id="amV-hl-yG3"/>
+                            <constraint firstItem="Lt6-21-8fw" firstAttribute="trailing" secondItem="xyX-BE-bm1" secondAttribute="trailing" id="g3t-cg-K7s"/>
                             <constraint firstItem="8Q2-vd-rv1" firstAttribute="trailing" secondItem="xyX-BE-bm1" secondAttribute="trailing" id="hAd-9j-olR"/>
+                            <constraint firstItem="8Q2-vd-rv1" firstAttribute="top" secondItem="Lt6-21-8fw" secondAttribute="bottom" id="q48-Tr-jSY"/>
+                            <constraint firstItem="Lt6-21-8fw" firstAttribute="top" secondItem="xyX-BE-bm1" secondAttribute="top" id="zKh-wt-NvK"/>
                             <constraint firstItem="xyX-BE-bm1" firstAttribute="trailing" secondItem="h3A-kw-dRZ" secondAttribute="trailing" constant="16" id="zLs-ry-eMl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xyX-BE-bm1"/>
