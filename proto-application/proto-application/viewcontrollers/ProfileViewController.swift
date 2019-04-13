@@ -67,7 +67,10 @@ class ProfileViewController: UIViewController {
         self.performSegue(withIdentifier: "toPayOmnomcom", sender: nil)
     }
     
-
+    @IBAction func protubeAdminPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "showPinInput", sender: nil)
+    }
+    
     @IBAction func logOutPressed(_ sender: UIButton) {
         keychain.clear()
         self.performSegue(withIdentifier: "unwindToLogIn", sender: nil)

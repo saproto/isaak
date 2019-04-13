@@ -60,6 +60,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         getNews(completion: { completion in
             self.newsTable.reloadData()
         })
+        retrieveProtubeToken()
     }
     
     func getNews(completion: @escaping (_ result: Bool) -> Void){

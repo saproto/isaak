@@ -21,6 +21,25 @@ func isLoggedIn() -> Bool{
 
 }
 
+//func retrieveProtubeToken(){
+//    let protubeTokenReq = Alamofire.request(OAuth.p,
+//                                            method: <#T##HTTPMethod#>,
+//                                            parameters: <#T##Parameters?#>,
+//                                            encoding: <#T##ParameterEncoding#>,
+//                                            headers: <#T##HTTPHeaders?#>)
+//}
+
+func retrieveProtubeToken(){
+    let protubeTokenReq = Alamofire.request(OAuth.protubeToken,
+                                            method: .get,
+                                            parameters: [:],
+                                            encoding: URLEncoding.methodDependent,
+                                            headers: OAuth.headers)
+    protubeTokenReq.responseProtubeToken{ response in
+        keychain.set(response.result.value!.token!, forKey: "protube_token")
+    }
+}
+
 func tokenRequest(token: Any, completion: @escaping (_ result: Bool) -> Void){
     
     let headers: HTTPHeaders = [

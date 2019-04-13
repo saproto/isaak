@@ -59,23 +59,38 @@ class OmnomcomQRViewController: UIViewController, AVCaptureMetadataOutputObjects
             print(code.suffix(8))
             let omnomCode = code.suffix(8)
             
-            let controller = UIAlertController(title: "Do you want to pay?", message: "By clicking Yes, you will pay for the current order in the OmNomCom", preferredStyle: .alert)
-            let Yes = UIAlertAction(title: "Yes", style: .default, handler: {(alert: UIAlertAction!) in self.performPayment(code: String(omnomCode))})
-            let No = UIAlertAction(title: "No", style: .cancel, handler: {(alert: UIAlertAction!) in self.dismiss(animated: true, completion: nil)})
+            let infoReq = Alamofire.request(OAuth.omnomQRInfo + omnomCode,
+                                            method: .get,
+                                            parameters: [:],
+                                            encoding: URLEncoding.methodDependent,
+                                            headers: OAuth.headers)
             
-            controller.addAction(No)
-            controller.addAction(Yes)
+            infoReq.responseQrInfo{ response in
+                
+                print(response)
+                let resp = response.result.value!
+                let message = resp.description!.replacingOccurrences(of: "&euro; ", with: "€")
+                
+                let controller = UIAlertController(title: "Do you want to confirm?", message: message, preferredStyle: .alert)
+                let Yes = UIAlertAction(title: "Confirm", style: .default, handler: {(alert: UIAlertAction!) in self.performPayment(code: String(omnomCode))})
+                let No = UIAlertAction(title: "Cancel", style: .cancel, handler: {(alert: UIAlertAction!) in self.dismiss(animated: true, completion: nil)})
+                
+                controller.addAction(No)
+                controller.addAction(Yes)
+                
+                self.present(controller, animated: true, completion: nil)
+            }
             
-            self.present(controller, animated: true, completion: nil)
+            
         }else{
             let controller = UIAlertController(title: "Failed!", message: "The code you scanned is not an OmNomCom purchase QR code.", preferredStyle: .alert)
-            let Yes = UIAlertAction(title: "Ok", style: .default, handler: {(alert: UIAlertAction!) in
+            let Ok = UIAlertAction(title: "Ok", style: .default, handler: {(alert: UIAlertAction!) in
                 if (self.captureSession?.isRunning == false) {
                     self.captureSession?.startRunning()
                 }
             })
             
-            controller.addAction(Yes)
+            controller.addAction(Ok)
             
             self.present(controller, animated: true, completion: nil)
         }

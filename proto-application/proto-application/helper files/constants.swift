@@ -13,14 +13,15 @@ import Alamofire
 let keychain = KeychainSwift()
 
 struct OAuth {
+    static var baseURL = "https://www.proto.utwente.nl"
+    
+    static var headers: HTTPHeaders = ["Authorization" : "Bearer " + keychain.get("access_token")!]
+    
     static var consumerKey = "3"
     static var consumerSecret = "sXnj8OzgsAe2do4Gb0fjmZBAESQwt2lruqPLvR8y"
     static var authorizeURL = baseURL + "/oauth/authorize?client_id=3&response_type=code&redirect_uri=saproto://oauth_callback&scope=*"
     static var accesTokenURL = baseURL + "/oauth/token"
     static var callbackURL = "saproto://oauth_callback"
-    
-    static var baseURL = "https://www.proto.utwente.nl"
-    static var headers: HTTPHeaders = ["Authorization" : "Bearer " + keychain.get("access_token")!]
     
     static var profileInfo = baseURL + "/api/user/info"
     static var profilePicture = baseURL + "/api/user/profile_picture"
@@ -34,6 +35,7 @@ struct OAuth {
     static var news = baseURL + "/api/news"
     
     static var omnomQR = baseURL + "/api/user/qr_auth_approve/"
-    static var omnomQRInfo = baseURL + "api/user/qr_auth_info/"
+    static var omnomQRInfo = baseURL + "/api/user/qr_auth_info/"
 
+    static var protubeToken = baseURL + "/api/user/token"
 }
