@@ -184,7 +184,7 @@
                         <outlet property="userNameLbl" destination="erT-yF-h4s" id="qE5-Cx-MTI"/>
                         <outlet property="welcomeMessageLbl" destination="gpm-F4-tZa" id="Luy-2h-Paw"/>
                         <segue destination="miG-ZN-cOR" kind="presentation" identifier="toPayOmnomcom" id="6em-OH-SaE"/>
-                        <segue destination="51U-fK-3Ey" kind="presentation" identifier="showPinInput" id="in9-U3-pIp"/>
+                        <segue destination="51U-fK-3Ey" kind="presentation" identifier="showPinInput" modalPresentationStyle="overCurrentContext" id="in9-U3-pIp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AkS-Ip-fwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
