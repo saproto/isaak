@@ -15,7 +15,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet var calHeight: NSLayoutConstraint!
     @IBOutlet var Calendar: FSCalendar!
     @IBOutlet var eventTableView: UITableView!
-    var events: Event = []
+    var eventSelection : Event = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,15 +43,15 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
+        return eventSelection.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "event") as! EventCell
         
-        cell.eventTitle.text = events[indexPath.row].title
-        cell.eventTime.text = Date(timeIntervalSince1970: events[indexPath.row].start!).readableString()
-        cell.eventLocation.text = events[indexPath.row].location
+        cell.eventTitle.text = eventSelection[indexPath.row].title
+        cell.eventTime.text = Date(timeIntervalSince1970: eventSelection[indexPath.row].start!).readableString()
+        cell.eventLocation.text = eventSelection[indexPath.row].location
         
         return cell
     }
@@ -62,45 +62,38 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBAction func segmentControlChanged(_ sender: UISegmentedControl) {
         if segmentedControl.selectedSegmentIndex == 0{
-            calHeight.constant = 0
-            UIView.animate(withDuration: 0.3) {
-                self.view.layoutIfNeeded()
-            }
+            EventRequest(fromDate: Date().timeIntervalSince1970, onlySubscribed: true)
         }else{
-            calHeight.constant = 255
-            UIView.animate(withDuration: 0.3) {
-                self.view.layoutIfNeeded()
-            }
+            EventRequest(fromDate: Calendar.selectedDate?.timeIntervalSince1970 ?? Date().timeIntervalSince1970, onlySubscribed: false)
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is EventDetailViewController{
             let destVC = segue.destination as! EventDetailViewController
-            destVC.events = events
-            destVC.eventNr = eventTableView.indexPathForSelectedRow!.row
+            //destVC.events = eventSelection
+            destVC.eventID = eventSelection[eventTableView.indexPathForSelectedRow!.row].id!
         }
     }
     
     func EventRequest(fromDate: Double, onlySubscribed: Bool){
         
-        let eventsRequest = Alamofire.request(OAuth.upcomingEvents,
-                                            method: .get,
-                                            parameters: [:],
-                                            encoding: URLEncoding.methodDependent,
-                                            headers: OAuth.headers)
-        eventsRequest.responseEvent { response in
-            self.events = []
-            
-            let eventsResp = response.result.value
-            for i in 0 ... (eventsResp?.count)! - 1{
-                if eventsResp![i].start! >= fromDate{
-                    self.events.append(eventsResp![i])
+        eventSelection = [] //empty the array before filling it with a new selection
+        
+        for i in 0 ... (events.count) - 1{
+            if events[i].start! >= fromDate{
+                if onlySubscribed{
+                    if events[i].userSignedup ?? false{
+                        eventSelection.append(events[i])
+                    }
+                }else{
+                    eventSelection.append(events[i])
+                    
                 }
             }
-            print(self.events.count)
-            self.eventTableView.reloadData()
         }
+        
+        self.eventTableView.reloadData()
     }
 }
 

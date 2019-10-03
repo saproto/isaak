@@ -18,6 +18,7 @@ class ProTubePinViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var digit1: UITextField!
     @IBOutlet var digit2: UITextField!
     @IBOutlet var digit3: UITextField!
+    @IBOutlet var pinView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,10 @@ class ProTubePinViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        retrieveProtubeToken()
+        pinView.layer.cornerRadius = 10
+        pinView.layer.masksToBounds = true
+        
         protube.on(clientEvent: .connect) {data, ack in
             print("socket connected")
             //protube.emit("token", keychain.get("protube_token")!)

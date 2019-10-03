@@ -60,7 +60,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         getNews(completion: { completion in
             self.newsTable.reloadData()
         })
-        retrieveProtubeToken()
+        //retrieveProtubeToken()
     }
     
     func getNews(completion: @escaping (_ result: Bool) -> Void){
@@ -83,6 +83,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         newsTable.dataSource = self
         newsTable.delegate = self
+        refreshEvents()
         // Do any additional setup after loading the view.
     }
     

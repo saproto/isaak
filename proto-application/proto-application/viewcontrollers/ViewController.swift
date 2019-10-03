@@ -16,14 +16,47 @@ class ViewController: UIViewController {
     var webAuthSession: ASWebAuthenticationSession?
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBAction func unwindToLogInView(segue: UIStoryboardSegue){}
+    @IBOutlet var loginButton: UIButton!
+    @IBOutlet var loggedInLbl: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print(KeychainWrapper.standard.string(forKey: "access_token")!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        loggedInLbl.text = ""
         activityIndicator.isHidden = true //hide activity Indicator
+        
+        if !(keychain.get("access_token") ?? "").isEmpty{
+            print(keychain.get("access_token")!)
+            //loggedInLbl.text = "Welcome, " + keychain.get("calling_name")!
+            activityIndicator.isHidden = false
+            activityIndicator.startAnimating()
+            loginButton.isHidden = true
+            tryAccessToken(completion: {completion in
+                if completion{
+                    print("checked, still active")
+                    self.performSegue(withIdentifier: "toHome", sender: nil)
+                }else{
+                    refreshToken(completion: { completion in
+                        if completion{
+                            self.performSegue(withIdentifier: "toHome", sender: nil)
+                            print("checked, refreshed token")
+                        }else{
+                            // #TODO: show alert that they have to log in again
+                            self.activityIndicator.isHidden = true
+                            self.loggedInLbl.text = ""
+                            self.loginButton.isHidden = false
+                            print("checked, tried to refresh but failed.")
+                        }
+                    })
+                }
+            })
+        }else{
+            loginButton.isHidden = false
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -44,7 +77,7 @@ class ViewController: UIViewController {
             guard error == nil, let successURL = callBack else {return}
             
             let oauthToken = NSURLComponents(string: (successURL.absoluteString))?.queryItems?.filter({$0.name == "code"}).first //extract token from callback URL
-            
+            print(oauthToken!)
             tokenRequest(token: oauthToken?.value as Any, completion: {completion in
                 if completion{
                     self.performSegue(withIdentifier: "toHome", sender: nil)

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -39,22 +39,37 @@
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="R6G-LU-a3R">
-                                <rect key="frame" x="177.5" y="457" width="20" height="20"/>
+                                <rect key="frame" x="177.5" y="423" width="20" height="20"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vme-ho-tMI">
+                                <rect key="frame" x="50" y="323" width="275" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="FNi-br-wo3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.5568627451" green="0.83953450519999995" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.066666666669999999" green="0.066666666669999999" blue="0.066666666669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vme-ho-tMI" secondAttribute="trailing" constant="50" id="6gT-xh-SrS"/>
                             <constraint firstItem="iW0-5k-hoN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="74" id="GuN-IO-bwx"/>
                             <constraint firstItem="5eW-0q-Iia" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UNw-mh-iy1"/>
                             <constraint firstItem="5eW-0q-Iia" firstAttribute="top" secondItem="iW0-5k-hoN" secondAttribute="bottom" constant="155" id="VqQ-K0-5vN"/>
                             <constraint firstItem="iW0-5k-hoN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WTh-IU-0GD"/>
-                            <constraint firstItem="R6G-LU-a3R" firstAttribute="top" secondItem="5eW-0q-Iia" secondAttribute="bottom" constant="50" id="f5Y-qe-H1g"/>
+                            <constraint firstItem="vme-ho-tMI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="e89-d2-YGg"/>
+                            <constraint firstItem="R6G-LU-a3R" firstAttribute="top" secondItem="5eW-0q-Iia" secondAttribute="bottom" constant="16" id="f5Y-qe-H1g"/>
+                            <constraint firstItem="vme-ho-tMI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jHk-Hh-S61"/>
+                            <constraint firstItem="vme-ho-tMI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="pxt-kl-qwN"/>
                             <constraint firstItem="R6G-LU-a3R" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="r2p-lL-PEL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="R6G-LU-a3R" id="xuv-Dt-y4T"/>
+                        <outlet property="loggedInLbl" destination="vme-ho-tMI" id="teb-wp-ecK"/>
+                        <outlet property="loginButton" destination="5eW-0q-Iia" id="iP9-SX-GfY"/>
                         <segue destination="O1A-1I-vvk" kind="presentation" identifier="toHome" id="80D-IF-ucC"/>
                     </connections>
                 </viewController>
@@ -119,7 +134,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="dnD-A4-bZe"/>
                                 </constraints>
-                                <state key="normal" title="Pay OmNomCom">
+                                <state key="normal" title="Scan OmNomCom QR">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -146,7 +161,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Key-EL-OLW"/>
                                 </constraints>
-                                <state key="normal" title="ProTube Admin">
+                                <state key="normal" title="ProTube Remote">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -235,7 +250,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4MB-wN-bq5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2665" y="1414"/>
+            <point key="canvasLocation" x="2545" y="1415"/>
         </scene>
         <!--Data Source-->
         <scene sceneID="DEg-Sh-Dg6">
@@ -246,14 +261,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="Qma-g0-FXB">
-                                <rect key="frame" x="8" y="28" width="359" height="29"/>
+                                <rect key="frame" x="60" y="28" width="255" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="LrJ-Yj-0Tz"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="Upcoming Events"/>
-                                    <segment title="Calendar"/>
                                     <segment title="Subscribed Events"/>
+                                    <segment title="Calendar"/>
                                 </segments>
                                 <color key="tintColor" red="0.5568627451" green="0.83953450519999995" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -502,6 +516,9 @@
                                         <state key="normal" title="Sign me up">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="signupBtnPressed:" destination="kwX-Xz-TQX" eventType="touchUpInside" id="M6d-lH-UiC"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mqH-VK-p0V">
                                         <rect key="frame" x="254" y="16" width="30" height="30"/>
@@ -572,6 +589,7 @@
                         <viewLayoutGuide key="safeArea" id="8F9-6R-gUx"/>
                     </view>
                     <connections>
+                        <outlet property="SignupBtn" destination="tdU-zZ-JiV" id="Tld-DR-5pR"/>
                         <outlet property="descriptionText" destination="GwQ-Br-a7n" id="Tf5-7e-5uf"/>
                         <outlet property="endTimeLbl" destination="STh-2G-PL2" id="1R2-PR-bHB"/>
                         <outlet property="eventTitleLbl" destination="jjM-ju-DD9" id="hmL-fX-5LB"/>
@@ -856,10 +874,10 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lt6-21-8fw">
+                            <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="Lt6-21-8fw">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem id="xNh-N6-LLb">
@@ -910,10 +928,10 @@
             </objects>
             <point key="canvasLocation" x="2544.8000000000002" y="-1350.6746626686659"/>
         </scene>
-        <!--Protube Admin View Controller-->
+        <!--Protube Remote View Controller-->
         <scene sceneID="PAF-1t-OBt">
             <objects>
-                <viewController id="SRm-f5-E5m" customClass="ProtubeAdminViewController" customModule="proto_application" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SRm-f5-E5m" customClass="ProtubeRemoteViewController" customModule="proto_application" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mZ8-m9-o7o">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -925,7 +943,10 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                <connections>
+                                    <action selector="SearchFromKeyBoardPressed:" destination="SRm-f5-E5m" eventType="primaryActionTriggered" id="vDx-VL-7c8"/>
+                                </connections>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jvc-HE-Pn2">
                                 <rect key="frame" x="0.0" y="104" width="375" height="563"/>
@@ -1020,6 +1041,7 @@
                                             <outlet property="Thumbnail" destination="UJE-Ir-OhZ" id="Pjs-se-Hvo"/>
                                             <outlet property="artist" destination="KSc-vJ-WNx" id="hiX-uz-sN0"/>
                                             <outlet property="duration" destination="B8m-II-xx1" id="MM7-cx-mMM"/>
+                                            <outlet property="plusImg" destination="zzL-Bl-dlW" id="G3G-2Y-2PH"/>
                                             <outlet property="title" destination="wuT-aY-cMG" id="iFT-S9-hIC"/>
                                         </connections>
                                     </tableViewCell>
@@ -1059,7 +1081,6 @@
                                 <state key="normal" image="back"/>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="SRm-f5-E5m" eventType="touchUpInside" id="KNd-0h-Qhc"/>
-                                    <segue destination="Qrz-Va-1wU" kind="unwind" identifier="backToProfile" unwindAction="unwindToProfileViewWithSegue:" id="wl7-wf-OHr"/>
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="1rr-HC-d2a">
@@ -1092,18 +1113,19 @@
                         <outlet property="searchResultsTable" destination="Jvc-HE-Pn2" id="GHN-Qd-yz7"/>
                         <outlet property="searchText" destination="3Ub-sv-T2p" id="EeU-Gc-TRL"/>
                         <outlet property="showVideoSelector" destination="kdR-nH-Blg" id="leD-ri-497"/>
+                        <segue destination="Qrz-Va-1wU" kind="unwind" identifier="unwindToProfile" unwindAction="unwindToProfileViewWithSegue:" id="sdn-Df-kac"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UFo-yT-vc6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Qrz-Va-1wU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3606" y="644"/>
+            <point key="canvasLocation" x="3388" y="644"/>
         </scene>
         <!--Pro Tube Pin View Controller-->
         <scene sceneID="Tuj-rw-tfZ">
             <objects>
                 <viewController id="51U-fK-3Ey" customClass="ProTubePinViewController" customModule="proto_application" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="W9R-qI-x6u">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="W9R-qI-x6u">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1200,12 +1222,13 @@
                         <outlet property="digit1" destination="vym-f0-bzS" id="eNt-ek-TgJ"/>
                         <outlet property="digit2" destination="shW-xM-mWL" id="y0c-jc-hF3"/>
                         <outlet property="digit3" destination="QtH-G0-dxn" id="G7d-bC-QPv"/>
+                        <outlet property="pinView" destination="dxt-Qp-vuf" id="lZj-Xt-30I"/>
                         <segue destination="SRm-f5-E5m" kind="presentation" identifier="toPTRemote" id="TeD-mk-OCl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mxn-6k-VII" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2665" y="644"/>
+            <point key="canvasLocation" x="2545" y="644"/>
         </scene>
     </scenes>
     <resources>
@@ -1216,7 +1239,7 @@
         <image name="cross" width="96" height="96"/>
         <image name="home" width="30" height="30"/>
         <image name="info" width="96" height="96"/>
-        <image name="logo" width="481" height="266.39999389648438"/>
+        <image name="logo" width="1002" height="555"/>
         <image name="marker" width="96" height="96"/>
         <image name="menu" width="500" height="500"/>
         <image name="person" width="96" height="96"/>

@@ -17,6 +17,7 @@ class ytVideoCell: UITableViewCell {
     @IBOutlet var title: UILabel!
     @IBOutlet var artist: UILabel!
     @IBOutlet var duration: UILabel!
+    @IBOutlet var plusImg: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,7 +27,6 @@ class ytVideoCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 

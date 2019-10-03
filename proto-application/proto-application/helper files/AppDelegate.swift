@@ -16,38 +16,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var i: Int = 0
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let storyboardLaunch = UIStoryboard(name: "LaunchScreen", bundle: nil)
-        self.window = UIWindow()
-        let logIn = storyboard.instantiateViewController(withIdentifier: "LogIn")
-        let home = storyboard.instantiateViewController(withIdentifier: "Tab")
-        let launch = storyboardLaunch.instantiateViewController(withIdentifier: "launch")
-        
-        if (keychain.get("access_token") ?? "").isEmpty{
-            self.window?.rootViewController = logIn
-        }else{
-            tryAccessToken(completion: {completion in
-                if completion{
-                    self.window?.rootViewController = home
-                    print("checked, still active")
-                }else{
-                    tokenRequest(token: keychain.get("refresh_token")!, completion: { completion in
-                        if completion{
-                            self.window?.rootViewController = home
-                            print("checked, refreshed token")
-                        }else{
-                            self.window?.rootViewController = logIn
-                            print("checked, tried to refresh but failed.")
-                        }
-                    })
-                }
-            })
-            if ((self.window?.rootViewController) == nil){
-                print("check not finished yet")
-                self.window?.rootViewController = launch
-            }
-        }
-        self.window?.makeKeyAndVisible()
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let storyboardLaunch = UIStoryboard(name: "LaunchScreen", bundle: nil)
+//        self.window = UIWindow()
+//        let logIn = storyboard.instantiateViewController(withIdentifier: "LogIn")
+//        let home = storyboard.instantiateViewController(withIdentifier: "Tab")
+//        let launch = storyboardLaunch.instantiateViewController(withIdentifier: "launch")
+//
+//        if (keychain.get("access_token") ?? "").isEmpty{
+//            self.window?.rootViewController = logIn
+//        }else{
+//            tryAccessToken(completion: {completion in
+//                if completion{
+//                    self.window?.rootViewController = home
+//                    print("checked, still active")
+//                }else{
+//                    tokenRequest(token: keychain.get("refresh_token")!, completion: { completion in
+//                        if completion{
+//                            self.window?.rootViewController = home
+//                            print("checked, refreshed token")
+//                        }else{
+//                            self.window?.rootViewController = logIn
+//                            print("checked, tried to refresh but failed.")
+//                        }
+//                    })
+//                }
+//            })
+//            if ((self.window?.rootViewController) == nil){
+//                print("check not finished yet")
+//                self.window?.rootViewController = launch
+//            }
+//        }
+//        self.window?.makeKeyAndVisible()
         
         return true
     }
@@ -60,6 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        protube.disconnect()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {

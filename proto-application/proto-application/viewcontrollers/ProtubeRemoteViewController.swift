@@ -11,12 +11,13 @@ import SocketIO
 import Alamofire
 import AlamofireImage
 
-class ProtubeAdminViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ProtubeRemoteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var searchResultsTable: UITableView!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var searchText: UITextField!
     @IBOutlet var showVideoSelector: UISegmentedControl!
+    var lastAdded : String! = ""
     
     var results : [NSMutableDictionary] = []
     
@@ -37,6 +38,7 @@ class ProtubeAdminViewController: UIViewController, UITableViewDelegate, UITable
         cell.artist.text = results[indexPath.row].object(forKey: "channelTitle") as? String
         cell.duration.text = results[indexPath.row].object(forKey: "duration") as? String
         cell.title.text = results[indexPath.row].object(forKey: "title") as? String
+        cell.plusImg.image = #imageLiteral(resourceName: "plus")
         
         let thumbnailReq = Alamofire.request("https://img.youtube.com/vi/" + (results[indexPath.row].object(forKey: "id") as! String) + "/0.jpg")
         thumbnailReq.responseImage{ response in
@@ -52,6 +54,9 @@ class ProtubeAdminViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         protube.emit("add", ["id" : results[indexPath.row].object(forKey: "id")!, "showVideo" :  showVideo()])
+        let cell = searchResultsTable.cellForRow(at: indexPath) as! ytVideoCell
+        cell.plusImg.image = #imageLiteral(resourceName: "added")
+        cell.isSelected = false
     }
 
     override func viewDidLoad() {
@@ -69,7 +74,21 @@ class ProtubeAdminViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidAppear(_ animated: Bool) {
     }
     
+    
     @IBAction func searchButtonPressed(_ sender: Any) {
+        search()
+    }
+    
+    @IBAction func backButtonPressed(_ sender: Any) {
+        protube.disconnect()
+        self.performSegue(withIdentifier: "unwindToProfile", sender: nil)
+    }
+    
+    @IBAction func SearchFromKeyBoardPressed(_ sender: UITextField) {
+        search()
+    }
+    
+    func search(){
         searchText.resignFirstResponder()
         if !searchText.text!.isEmpty{
             activityIndicator.startAnimating()
@@ -82,11 +101,6 @@ class ProtubeAdminViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
-    @IBAction func backButtonPressed(_ sender: Any) {
-        protube.disconnect()
-        self.performSegue(withIdentifier: "backToProfile", sender: nil)
-    }
-    
     func addHandlers(){
         protube.on("searchResults", callback: { data, _ in
             self.activityIndicator.stopAnimating()
@@ -94,6 +108,16 @@ class ProtubeAdminViewController: UIViewController, UITableViewDelegate, UITable
             let mutable = dataArray[0] as! NSMutableArray
             self.results = mutable as! [NSMutableDictionary]
             self.searchResultsTable.reloadData()
+        })
+        
+        protube.on(clientEvent: .disconnect, callback: { data, _ in
+            print("disconnected")
+            protube.disconnect()
+            self.performSegue(withIdentifier: "unwindToProfile", sender: nil)
+        })
+        
+        protube.on("queue", callback: { data, _ in
+            
         })
     }
     

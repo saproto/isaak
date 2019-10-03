@@ -7,12 +7,12 @@
 //
 // To parse the JSON, add this file to your project and do:
 //
-//   let event = try? newJSONDecoder().decode(Event.self, from: jsonData)
-//
+
+
 // To parse values from Alamofire responses:
 //
-//   Alamofire.request(url).responseEvent { response in
-//     if let event = response.result.value {
+//   Alamofire.request(url).responseEventElement { response in
+//     if let eventElement = response.result.value {
 //       ...
 //     }
 //   }
@@ -20,15 +20,56 @@
 import Foundation
 import Alamofire
 
-typealias Event = [EventElement]
-
+// MARK: - EventElement
 struct EventElement: Codable {
     let id: Int?
-    let title, description: String?
+    let title, eventDescription: String?
     let start, end: Double?
     let location: String?
-    let current, over: Bool?
+    let current, over, hasSignup: Bool?
+    let price: Double?
+    let noShowFee: Int?
+    let userSignedup, userSignedupBackup: Bool?
+    let userSignedupID: Int?
+    let canSignup, canSignupBackup, canSignout: Bool?
+    let tickets: [Ticket]?
+    
+    enum CodingKeys: String, CodingKey {
+        case id, title
+        case eventDescription = "description"
+        case start, end, location, current, over
+        case hasSignup = "has_signup"
+        case price
+        case noShowFee = "no_show_fee"
+        case userSignedup = "user_signedup"
+        case userSignedupBackup = "user_signedup_backup"
+        case userSignedupID = "user_signedup_id"
+        case canSignup = "can_signup"
+        case canSignupBackup = "can_signup_backup"
+        case canSignout = "can_signout"
+        case tickets
+    }
 }
+
+//
+// To parse values from Alamofire responses:
+//
+//   Alamofire.request(url).responseTicket { response in
+//     if let ticket = response.result.value {
+//       ...
+//     }
+//   }
+
+// MARK: - Ticket
+struct Ticket: Codable {
+    let barcode: String?
+    let scanned: String?
+    let id: Int?
+}
+
+typealias Event = [EventElement]
+
+// MARK: - Alamofire response handlers
 
 extension DataRequest {
     fileprivate func decodableResponseSerializer<T: Decodable>() -> DataResponseSerializer<T> {

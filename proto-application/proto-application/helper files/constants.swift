@@ -12,10 +12,14 @@ import Alamofire
 
 let keychain = KeychainSwift()
 
+let pSiteBlue = UIColor(red: 0, green: 170/255, blue: 192/255, alpha: 1)
+let protoGreen = UIColor(red: 142/255, green: 214/255, blue: 58/255, alpha: 1)
+
 struct OAuth {
     static var baseURL = "https://www.proto.utwente.nl"
     
-    static var headers: HTTPHeaders = ["Authorization" : "Bearer " + keychain.get("access_token")!]
+    static var headers: HTTPHeaders = ["Authorization" : "Bearer " + keychain.get("access_token")!,
+                                       "Accept" : "application/json"]
     
     static var consumerKey = "3"
     static var consumerSecret = "sXnj8OzgsAe2do4Gb0fjmZBAESQwt2lruqPLvR8y"
@@ -26,7 +30,9 @@ struct OAuth {
     static var profileInfo = baseURL + "/api/user/info"
     static var profilePicture = baseURL + "/api/user/profile_picture"
     
-    static var upcomingEvents = baseURL + "/api/events/upcoming"
+    static var upcomingEvents = baseURL + "/api/events/upcoming/for_user/"
+    static var signup = baseURL + "/api/events/signup/"
+    static var signout = baseURL + "/api/events/signout/"
     
     static var orderlines = baseURL + "/api/user/orders"
     static var total_month = baseURL + "/api/user/orders/total_month"

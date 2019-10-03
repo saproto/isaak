@@ -50,38 +50,56 @@ class PurchaseHistoryViewController: UIViewController, UITableViewDataSource {
 
     override func viewDidAppear(_ animated: Bool) {
         
-        let orderlinesReq = Alamofire.request(OAuth.orderlines,
-                                              method: .get,
-                                              parameters: [:],
-                                              encoding: URLEncoding.methodDependent,
-                                              headers: OAuth.headers)
-        orderlinesReq.responseOrderline{ response in
-            self.orderlines = response.result.value!
-            self.purchaseTable.reloadData()
-        }
-        
         let totalMonthReq = Alamofire.request(OAuth.total_month,
                                               method: .get,
                                               parameters: [:],
                                               encoding: URLEncoding.methodDependent,
                                               headers: OAuth.headers)
         totalMonthReq.responseJSON{response in
-            DispatchQueue.main.async {
-                let amount: Double = response.result.value! as! Double
-                self.totalMonthLabel.text = "€" + String(format: "%.2f", amount)
+            switch response.result{
+            case .success:
+                DispatchQueue.main.async {
+                    let amount: Double = response.result.value! as! Double
+                    self.totalMonthLabel.text = "€" + String(format: "%.2f", amount)
+                }
+            case .failure:
+                print("total month failed")
+                print(response.result)
             }
         }
         
         let nextWithdrawalReq = Alamofire.request(OAuth.next_withdrawal,
+                                                  method: .get,
+                                                  parameters: [:],
+                                                  encoding: URLEncoding.methodDependent,
+                                                  headers: OAuth.headers)
+        nextWithdrawalReq.responseJSON{response in
+            switch response.result{
+            case .success:
+                DispatchQueue.main.async {
+                    let amount: Double = response.result.value! as! Double
+                    self.nextWithdrawalLabel.text = "€" + String(format: "%.2f", amount)
+                }
+            case .failure:
+                print("next withdrawal failed")
+                print(response.result)
+            }
+        }
+        
+        let orderlinesReq = Alamofire.request(OAuth.orderlines,
                                               method: .get,
                                               parameters: [:],
                                               encoding: URLEncoding.methodDependent,
                                               headers: OAuth.headers)
-        nextWithdrawalReq.responseJSON{response in
-            DispatchQueue.main.async {
-                let amount: Double = response.result.value! as! Double
-                self.nextWithdrawalLabel.text = "€" + String(format: "%.2f", amount)
+        orderlinesReq.responseOrderline{ response in
+            switch response.result{
+            case .success:
+                self.orderlines = response.result.value!
+                self.purchaseTable.reloadData()
+            case .failure:
+                print("orderlines failed")
             }
         }
+        
     }
 }

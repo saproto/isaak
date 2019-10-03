@@ -16,9 +16,10 @@
 		8633724221A46DB700DC8061 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8633724121A46DB700DC8061 /* EventDetailViewController.swift */; };
 		8633724421A5717E00DC8061 /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8633724321A5717E00DC8061 /* OAuth.swift */; };
 		8633724621A5C63A00DC8061 /* responseObjectSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8633724521A5C63A00DC8061 /* responseObjectSerializable.swift */; };
+		864879D222948C4500D14DAB /* refresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864879D122948C4500D14DAB /* refresh.swift */; };
 		865BB2A621923D60002A2B34 /* FSCalendar.m in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DE7F172191FE8F00F35841 /* FSCalendar.m */; };
 		8664103822626A2900B6084F /* ProTubePinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664103622626A2800B6084F /* ProTubePinViewController.swift */; };
-		8664103922626A2900B6084F /* ProtubeAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664103722626A2800B6084F /* ProtubeAdminViewController.swift */; };
+		8664103922626A2900B6084F /* ProtubeRemoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664103722626A2800B6084F /* ProtubeRemoteViewController.swift */; };
 		8664103B22626A3300B6084F /* ytVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664103A22626A3300B6084F /* ytVideoCell.swift */; };
 		8664103D22626A4800B6084F /* protubeToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664103C22626A4800B6084F /* protubeToken.swift */; };
 		8664103F2262760B00B6084F /* QrInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664103E2262760B00B6084F /* QrInfo.swift */; };
@@ -66,9 +67,10 @@
 		8633724121A46DB700DC8061 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		8633724321A5717E00DC8061 /* OAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth.swift; sourceTree = "<group>"; };
 		8633724521A5C63A00DC8061 /* responseObjectSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = responseObjectSerializable.swift; sourceTree = "<group>"; };
+		864879D122948C4500D14DAB /* refresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = refresh.swift; sourceTree = "<group>"; };
 		865BB2AC21924463002A2B34 /* bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bridging-header.h"; sourceTree = "<group>"; };
 		8664103622626A2800B6084F /* ProTubePinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProTubePinViewController.swift; sourceTree = "<group>"; };
-		8664103722626A2800B6084F /* ProtubeAdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtubeAdminViewController.swift; sourceTree = "<group>"; };
+		8664103722626A2800B6084F /* ProtubeRemoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtubeRemoteViewController.swift; sourceTree = "<group>"; };
 		8664103A22626A3300B6084F /* ytVideoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ytVideoCell.swift; sourceTree = "<group>"; };
 		8664103C22626A4800B6084F /* protubeToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = protubeToken.swift; sourceTree = "<group>"; };
 		8664103E2262760B00B6084F /* QrInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrInfo.swift; sourceTree = "<group>"; };
@@ -194,7 +196,7 @@
 				8667E4BF2176316E00605CC9 /* ViewController.swift */,
 				86305C332190AD540001435B /* HomeViewController.swift */,
 				86C0243222502138005EA123 /* articleViewController.swift */,
-				8664103722626A2800B6084F /* ProtubeAdminViewController.swift */,
+				8664103722626A2800B6084F /* ProtubeRemoteViewController.swift */,
 				8664103622626A2800B6084F /* ProTubePinViewController.swift */,
 				8602B7C3225CF44F00C89037 /* OmnomcomQRViewController.swift */,
 				86305C352190ADA10001435B /* CalendarViewController.swift */,
@@ -215,6 +217,7 @@
 				865BB2AC21924463002A2B34 /* bridging-header.h */,
 				8664103C22626A4800B6084F /* protubeToken.swift */,
 				86F3E4FE2237F8FA00259C56 /* orderlines.swift */,
+				864879D122948C4500D14DAB /* refresh.swift */,
 				86C0243022500DCD005EA123 /* news.swift */,
 				8664103E2262760B00B6084F /* QrInfo.swift */,
 				86DD8FEC21C17787001F3CF7 /* dateHelper.swift */,
@@ -415,7 +418,7 @@
 				8664103B22626A3300B6084F /* ytVideoCell.swift in Sources */,
 				8633724621A5C63A00DC8061 /* responseObjectSerializable.swift in Sources */,
 				86DE7F322191FE8F00F35841 /* FSCalendarExtensions.m in Sources */,
-				8664103922626A2900B6084F /* ProtubeAdminViewController.swift in Sources */,
+				8664103922626A2900B6084F /* ProtubeRemoteViewController.swift in Sources */,
 				86DE7F352191FE8F00F35841 /* FSCalendarHeaderView.m in Sources */,
 				86DE7F2F2191FE8F00F35841 /* FSCalendarCollectionViewLayout.m in Sources */,
 				86305C382190ADB50001435B /* PurchaseHistoryViewController.swift in Sources */,
@@ -432,6 +435,7 @@
 				8667E4BE2176316E00605CC9 /* AppDelegate.swift in Sources */,
 				8602B7C4225CF44F00C89037 /* OmnomcomQRViewController.swift in Sources */,
 				86C0243322502138005EA123 /* articleViewController.swift in Sources */,
+				864879D222948C4500D14DAB /* refresh.swift in Sources */,
 				86305C342190AD540001435B /* HomeViewController.swift in Sources */,
 				86DE7F2A2191FE8F00F35841 /* FSCalendarDelegationProxy.m in Sources */,
 				86C0243122500DCD005EA123 /* news.swift in Sources */,
