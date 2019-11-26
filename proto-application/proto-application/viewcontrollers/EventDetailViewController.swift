@@ -148,35 +148,34 @@ class EventDetailViewController: UIViewController {
             }
         }
         
-        if event.hasSignup!{
-            SignupBtn.isHidden = false
-            if event.canSignup!{
-                if event.userSignedup!{
-                    if event.canSignout! {
-                        //signed up and can still sign out
-                        SignupBtn.setTitle("Sign me out", for: .normal)
-                        SignupBtn.backgroundColor = UIColor.red
-                    }else{
-                        //signed up, but cannot sign out
-                        SignupBtn.isEnabled = false
-                        SignupBtn.backgroundColor = UIColor.gray
-                        SignupBtn.setTitle("You cannot sign out", for: .normal)
-                    }
+        SignupBtn.isHidden = !(event.hasSignup ?? false)
+        
+        if !SignupBtn.isHidden{
+            if event.userSignedup ?? false{
+                if event.canSignout! {
+                    //signed up and can still sign out
+                    SignupBtn.setTitle("Sign me out", for: .normal)
+                    SignupBtn.backgroundColor = UIColor.red
                 }else{
+                    //signed up, but cannot sign out
+                    SignupBtn.isEnabled = false
+                    SignupBtn.backgroundColor = UIColor.gray
+                    SignupBtn.setTitle("You cannot sign out", for: .normal)
+                }
+            }else{
+                if event.canSignup!{
                     //can sign up, but is not yet signed up
                     let btntext = "Sign me up | €" + String(format:"%.2f", event.price!)
                     print(btntext)
                     SignupBtn.setTitle(btntext, for: .normal)
                     SignupBtn.backgroundColor = pSiteBlue
+                }else{
+                    //cannot sign in
+                    SignupBtn.isEnabled = false
+                    SignupBtn.backgroundColor = UIColor.gray
+                    SignupBtn.setTitle("You cannot sign up", for: .normal)
                 }
-            }else{
-                //cannot sign in
-                SignupBtn.isEnabled = false
-                SignupBtn.backgroundColor = UIColor.gray
-                SignupBtn.setTitle("You cannot sign up", for: .normal)
             }
-        }else{
-            SignupBtn.isHidden = true
         }
     }
 }

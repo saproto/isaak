@@ -107,7 +107,6 @@ func tryAccessToken(completion: @escaping (_ result: Bool) -> Void){
                 completion(true)
             default:
                 completion(false)
-                print(response.result.value!)
         }
     }
 }
