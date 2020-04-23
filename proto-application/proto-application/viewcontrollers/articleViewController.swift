@@ -16,12 +16,19 @@ class articleViewController: UIViewController {
     @IBOutlet var articleTitle: UILabel!
     @IBOutlet var headerImage: UIImageView!
     @IBOutlet var content: UITextView!
+    @IBOutlet var releaseDate: UILabel!
     
     var article: NewsElement = NewsElement.init(id: nil, title: nil, featuredImageURL: nil, content: nil, publishedAt: nil)
+    var releaseDateFormat = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         articleTitle.text = article.title
+        
+        releaseDateFormat.dateStyle = .long
+        releaseDateFormat.timeStyle = .none
+        releaseDate.text = releaseDateFormat.string(from: Date(timeIntervalSince1970: article.publishedAt!))
+        
         if !((article.featuredImageURL ?? "").isEmpty){
             Alamofire.request(article.featuredImageURL!).responseImage{ response in
                 if let image = response.result.value{

@@ -27,7 +27,7 @@ struct NewsElement: Codable {
     let title: String?
     let featuredImageURL: String?
     let content: String?
-    let publishedAt: Int?
+    let publishedAt: Double?
     
     enum CodingKeys: String, CodingKey {
         case id, title

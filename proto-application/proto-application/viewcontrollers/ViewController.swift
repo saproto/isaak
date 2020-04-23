@@ -11,7 +11,12 @@ import AuthenticationServices
 import Alamofire
 import KeychainSwift
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ASWebAuthenticationPresentationContextProviding {
+    
+    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+        return self.view.window ?? ASPresentationAnchor()
+    }
+    
 
     var webAuthSession: ASWebAuthenticationSession?
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
@@ -73,8 +78,13 @@ class ViewController: UIViewController {
         let oauthUrl = URL(string: OAuth.authorizeURL) //initialization of ASWebAuthenticationSession
         let callbackURL = OAuth.callbackURL
         
+        print(oauthUrl)
+        
         self.webAuthSession = ASWebAuthenticationSession.init(url: oauthUrl!, callbackURLScheme: callbackURL, completionHandler: { (callBack:URL?, error:Error?) in
-            guard error == nil, let successURL = callBack else {return}
+            guard error == nil, let successURL = callBack else {
+                print(error?.localizedDescription)
+                return
+            }
             
             let oauthToken = NSURLComponents(string: (successURL.absoluteString))?.queryItems?.filter({$0.name == "code"}).first //extract token from callback URL
             print(oauthToken!)
@@ -90,6 +100,11 @@ class ViewController: UIViewController {
                 }
             })
         })
+        if #available(iOS 13.0, *) {
+            self.webAuthSession?.presentationContextProvider = self
+        } else {
+            // Fallback on earlier versions
+        }
         self.webAuthSession?.start() //execute the webauthenticationsession
         
     }

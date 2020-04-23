@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="iW0-5k-hoN">
-                                <rect key="frame" x="67.666666666666686" y="118" width="240.00000000000023" height="128"/>
+                                <rect key="frame" x="67.666666666666686" y="118" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="3jG-aO-JuL"/>
                                     <constraint firstAttribute="width" constant="240" id="BcV-sU-Uhm"/>
@@ -870,7 +870,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Mcj-e5-tir">
-                                <rect key="frame" x="16" y="274" width="343" height="430"/>
+                                <rect key="frame" x="16" y="294.33333333333326" width="343" height="409.66666666666674"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -889,6 +889,15 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10-10-2010" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUt-RJ-doi">
+                                <rect key="frame" x="209" y="266" width="150" height="20.333333333333314"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="7KT-XY-hH9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -899,10 +908,12 @@
                             <constraint firstItem="h3A-kw-dRZ" firstAttribute="leading" secondItem="xyX-BE-bm1" secondAttribute="leading" constant="16" id="KaP-d5-en8"/>
                             <constraint firstItem="xyX-BE-bm1" firstAttribute="bottom" secondItem="Mcj-e5-tir" secondAttribute="bottom" constant="20" id="Knq-ne-VSP"/>
                             <constraint firstItem="xyX-BE-bm1" firstAttribute="trailing" secondItem="Mcj-e5-tir" secondAttribute="trailing" constant="16" id="LEz-DW-MmD"/>
-                            <constraint firstItem="Mcj-e5-tir" firstAttribute="top" secondItem="h3A-kw-dRZ" secondAttribute="bottom" constant="16" id="YgQ-MQ-oFE"/>
                             <constraint firstItem="Mcj-e5-tir" firstAttribute="leading" secondItem="xyX-BE-bm1" secondAttribute="leading" constant="16" id="Zkp-E1-Nhv"/>
+                            <constraint firstItem="Mcj-e5-tir" firstAttribute="top" secondItem="GUt-RJ-doi" secondAttribute="bottom" constant="8" id="ekf-zU-LMa"/>
+                            <constraint firstItem="xyX-BE-bm1" firstAttribute="trailing" secondItem="GUt-RJ-doi" secondAttribute="trailing" constant="16" id="etX-ky-pkq"/>
                             <constraint firstItem="Lt6-21-8fw" firstAttribute="trailing" secondItem="xyX-BE-bm1" secondAttribute="trailing" id="g3t-cg-K7s"/>
                             <constraint firstItem="8Q2-vd-rv1" firstAttribute="trailing" secondItem="xyX-BE-bm1" secondAttribute="trailing" id="hAd-9j-olR"/>
+                            <constraint firstItem="GUt-RJ-doi" firstAttribute="top" secondItem="h3A-kw-dRZ" secondAttribute="bottom" constant="8" id="kvS-id-6Ll"/>
                             <constraint firstItem="8Q2-vd-rv1" firstAttribute="top" secondItem="Lt6-21-8fw" secondAttribute="bottom" id="q48-Tr-jSY"/>
                             <constraint firstItem="Lt6-21-8fw" firstAttribute="top" secondItem="xyX-BE-bm1" secondAttribute="top" id="zKh-wt-NvK"/>
                             <constraint firstItem="xyX-BE-bm1" firstAttribute="trailing" secondItem="h3A-kw-dRZ" secondAttribute="trailing" constant="16" id="zLs-ry-eMl"/>
@@ -916,6 +927,7 @@
                         <outlet property="articleTitle" destination="h3A-kw-dRZ" id="240-KZ-WoE"/>
                         <outlet property="content" destination="Mcj-e5-tir" id="CW9-wF-K6W"/>
                         <outlet property="headerImage" destination="8Q2-vd-rv1" id="x1K-U2-qZR"/>
+                        <outlet property="releaseDate" destination="GUt-RJ-doi" id="ayp-xU-DrU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="70q-il-4wl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -926,7 +938,7 @@
                     </connections>
                 </screenEdgePanGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2544.8000000000002" y="-1350.6746626686659"/>
+            <point key="canvasLocation" x="2544.8000000000002" y="-1350.7389162561576"/>
         </scene>
         <!--Protube Remote View Controller-->
         <scene sceneID="PAF-1t-OBt">

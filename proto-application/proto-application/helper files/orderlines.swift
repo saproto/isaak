@@ -24,10 +24,10 @@ struct OrderlineElement: Codable {
     let originalUnitPrice: Double?
     let units: Int?
     let totalPrice: Double?
-    let payedWithCash: String?
-    let payedWithMollie: JSONNull?
-    let payedWithWithdrawal: Int?
-    let description: JSONNull?
+//    let payedWithCash: String?
+//    let payedWithMollie: JSONNull?
+//    let payedWithWithdrawal: Int?
+//    let description: JSONNull?
     let createdAt, updatedAt: String?
     let product: Product?
     
@@ -39,10 +39,10 @@ struct OrderlineElement: Codable {
         case originalUnitPrice = "original_unit_price"
         case units
         case totalPrice = "total_price"
-        case payedWithCash = "payed_with_cash"
-        case payedWithMollie = "payed_with_mollie"
-        case payedWithWithdrawal = "payed_with_withdrawal"
-        case description
+//        case payedWithCash = "payed_with_cash"
+//        case payedWithMollie = "payed_with_mollie"
+//        case payedWithWithdrawal = "payed_with_withdrawal"
+//        case description
         case createdAt = "created_at"
         case updatedAt = "updated_at"
         case product
