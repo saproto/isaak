@@ -1,34 +1,61 @@
 //
-//  news.swift
-//  proto-application
+//  News.swift
+//  probeersel
 //
-//  Created by Hessel Bierma on 30/03/2019.
-//  Copyright © 2019 S.A. Proto. All rights reserved.
+//  Created by Hessel Bierma on 18-04-2020.
+//  Copyright © 2020 Hessel Bierma. All rights reserved.
 //
+
+import Foundation
+import CoreData
+
+// This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
 //
-//   let news = try? newJSONDecoder().decode(News.self, from: jsonData)
+//   let newsArticles = try? newJSONDecoder().decode(NewsArticles.self, from: jsonData)
+
 //
-// To parse values from Alamofire responses:
+// To read values from URLs:
 //
-//   Alamofire.request(url).responseNews { response in
-//     if let news = response.result.value {
+//   let task = URLSession.shared.newsArticlesTask(with: url) { newsArticle, response, error in
+//     if let newsArticle = newsArticle {
 //       ...
 //     }
 //   }
+//   task.resume()
 
-import Foundation
-import Alamofire
 
-typealias News = [NewsElement]
+//class articleImgs {
+//
+//    func fetch(moc : NSManagedObjectContext, news : Fetched) {
+//        let url : NSURL = NSURL(string: "")!
+//        let fetchReq = NSFetchRequest<NSManagedObject>(entityName: "News")
+//        let predicate = NSPredicate(format: "'featuredImgUrl' != %@", url)
+//        fetchReq.predicate = predicate
+//
+//        do {
+//            let results = try moc.fetch(fetchReq)
+//
+//            for result in results{
+//                if
+//            }
+//
+//        } catch let error as NSError {
+//            print("Could not fetch. \(error), \(error.userInfo)")
+//        }
+//
+//    }
+//}
 
-struct NewsElement: Codable {
-    let id: Int?
-    let title: String?
+
+// MARK: - NewsArticle
+struct NewsArticle: Codable {
+    let id: Int
+    let title: String
     let featuredImageURL: String?
-    let content: String?
-    let publishedAt: Double?
-    
+    let content: String
+    let publishedAt: Double
+
     enum CodingKeys: String, CodingKey {
         case id, title
         case featuredImageURL = "featured_image_url"
@@ -37,28 +64,23 @@ struct NewsElement: Codable {
     }
 }
 
-// MARK: - Alamofire response handlers
+typealias NewsArticles = [NewsArticle]
 
-extension DataRequest {
-    fileprivate func decodableResponseSerializer<T: Decodable>() -> DataResponseSerializer<T> {
-        return DataResponseSerializer { _, response, data, error in
-            guard error == nil else { return .failure(error!) }
-            
-            guard let data = data else {
-                return .failure(AFError.responseSerializationFailed(reason: .inputDataNil))
+
+// MARK: - URLSession response handlers
+
+extension URLSession {
+    fileprivate func codableTask<T: Codable>(with url: URL, completionHandler: @escaping (T?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+        return self.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else {
+                completionHandler(nil, response, error)
+                return
             }
-            
-            return Result { try newJSONDecoder().decode(T.self, from: data) }
+            completionHandler(try? newJSONDecoder().decode(T.self, from: data), response, nil)
         }
     }
-    
-    @discardableResult
-    fileprivate func responseDecodable<T: Decodable>(queue: DispatchQueue? = nil, completionHandler: @escaping (DataResponse<T>) -> Void) -> Self {
-        return response(queue: queue, responseSerializer: decodableResponseSerializer(), completionHandler: completionHandler)
-    }
-    
-    @discardableResult
-    func responseNews(queue: DispatchQueue? = nil, completionHandler: @escaping (DataResponse<News>) -> Void) -> Self {
-        return responseDecodable(queue: queue, completionHandler: completionHandler)
+
+    func newsArticlesTask(with url: URL, completionHandler: @escaping (NewsArticles?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+        return self.codableTask(with: url, completionHandler: completionHandler)
     }
 }

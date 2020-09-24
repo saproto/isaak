@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/hesselbierma/Documents/git/isaak/proto-application/proto-application/viewcontrollers/NewsRow.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/hesselbierma/Documents/git/isaak/proto-application/proto-application/viewcontrollers/articleDetail.swift">
+   </FileRef>
+   <FileRef
       location = "group:proto-application.xcodeproj">
    </FileRef>
    <FileRef

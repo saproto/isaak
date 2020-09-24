@@ -6,85 +6,152 @@
 //  Copyright © 2018 S.A. Proto. All rights reserved.
 //
 
-import UIKit
-import Alamofire
-import AlamofireImage
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+import SwiftUI
+
+struct ContentView: View {
     
-    @IBOutlet var newsTable: UITableView!
-    var news: News = []
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(entity: News.entity(),
+                  sortDescriptors: [NSSortDescriptor(keyPath: \News.publishedAt, ascending: false)]) var news : FetchedResults<News>
 
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    
+    @State var showingProfile = false
+    
+    var body: some View {
+        NavigationView {
+            List {
+//                NavigationLink(
+//                    destination: articleDetail(article: news[0])
+//                    ){
+                    FeaturedArticle(news: news)
+                    .scaledToFill()
+                    .frame(height: 200)
+                    .clipped()
+                    .listRowInsets(EdgeInsets())
+//                }
+                
+                NewsRow()
+                .listRowInsets(EdgeInsets())
+                
+                WidgetsRow()
+                .listRowInsets(EdgeInsets())
+                
+                NavigationLink(destination: profileView()){
+                    Text("Scan QR")
+                }
+            }
+            .navigationBarTitle(Text("Featured"))
+            .navigationBarItems(trailing: profileButton)
+            .sheet(isPresented: $showingProfile) {
+                profileView()
+            }
+        }.onAppear(perform: fetchNews)
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(news.count)
-        return news.count
-    }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseNewsArticleCell") as! newsArticleCell
-        cell.title.text = news[indexPath.row].title
-        if ((news[indexPath.row].featuredImageURL ?? "").isEmpty){
-            cell.title.textColor = UIColor.black
-            cell.featuredImage.image = nil
-        }else{
-            cell.title.textColor = UIColor.white
-            var url = news[indexPath.row].featuredImageURL!
-            url = url.dropLast(3) + "300"
-            Alamofire.request(url).responseImage{ response in
-                if let image = response.result.value{
-                    DispatchQueue.main.async {
-                        cell.featuredImage.image = image
+    let url = URL(string: "https://www.proto.utwente.nl/api/news")
+    
+    func fetchNews() {
+        //print("fetching")
+        URLSession.shared.newsArticlesTask(with: url!) { newsArticle, response, error in
+            if let newsArticle = newsArticle {
+                //print(newsArticle.count)
+                
+                    
+                DispatchQueue.main.async{
+                    for article in newsArticle {
+                        let newArticle = News(context: self.moc)
+                        newArticle.id = UUID()
+                        newArticle.title = article.title
+                        newArticle.publishedAt = article.publishedAt
+                        newArticle.content = article.content
+                        newArticle.featuredImgUrl = URL(string: article.featuredImageURL ?? "")
+                        try? self.moc.save()
                     }
+                    self.fetchImgs()
+                }
+
+            }else{
+                //print("error fetching")
+            }
+        }.resume()
+        
+        
+    }
+    
+    func fetchImgs(){
+        
+        for article in news {
+            if article.featuredImgUrl != nil{
+                if article.image == nil {
+                    URLSession.shared.dataTask(with: article.featuredImgUrl!, completionHandler: { data, response, error in
+                        guard let data = data else {
+                          print(String(describing: error))
+                          return
+                        }
+                        print("error == nil")
+                        DispatchQueue.main.async{
+                            article.image = data
+                            try? self.moc.save()
+                            print("inside dispatchq")
+                        }
+                    }).resume()
                 }
             }
         }
-        
-        return cell
     }
+                                                                                                                  
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "toArticleDetail", sender: nil)
-    }
+//    func delete(at offsets: IndexSet) {
+//        for index in offsets {
+//            let article = news[index]
+//            article.title = "deleted"
+//        }
+//
+//        try? moc.save()
+//    }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let dest = segue.destination as! articleViewController
-        dest.article = news[(newsTable.indexPathForSelectedRow?.row)!]
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        newsTable.rowHeight = 120
-        getNews(completion: { completion in
-            self.newsTable.reloadData()
-        })
-        //retrieveProtubeToken()
-    }
-    
-    func getNews(completion: @escaping (_ result: Bool) -> Void){
-        let newsRequest = Alamofire.request(OAuth.news,
-                                            method: .get,
-                                            parameters: [:],
-                                            encoding: URLEncoding.methodDependent,
-                                            headers: [:])
-        newsRequest.responseNews{ response in
-            self.news = []
-            let newsResp = response.result.value
-            for i in 0 ... (newsResp?.count)! - 1{
-                self.news.append(newsResp![i])
-            }
-            completion(true)
+    var profileButton: some View {
+        Button(action: { self.showingProfile.toggle()
+            self.fetchNews()
+        }) {
+            Image(systemName: "person.crop.circle")
+                .imageScale(.large)
+                .accessibility(label: Text("User Profile"))
+                .padding()
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        newsTable.dataSource = self
-        newsTable.delegate = self
-        refreshEvents()
-        // Do any additional setup after loading the view.
-    }
-    
 }
+
+struct FeaturedArticle: View {
+    var news : FetchedResults<News>
+    var body: some View {
+        VStack{
+            if news.count == 0 {
+                Image(uiImage: UIImage(imageLiteralResourceName: "protoLogo") )
+                .resizable()
+                .scaledToFill()
+            }else{
+                if news[0].image == nil{
+                    Image(uiImage: UIImage(imageLiteralResourceName: "protoLogo") )
+                    .resizable()
+                    .scaledToFill()
+                }else{
+                    Image(uiImage: UIImage(data: news[0].image!) ?? UIImage())
+                    .resizable()
+                    .scaledToFill()
+                }
+                
+            }
+        }
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+

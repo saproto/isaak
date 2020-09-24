@@ -17,6 +17,13 @@
 		8633724421A5717E00DC8061 /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8633724321A5717E00DC8061 /* OAuth.swift */; };
 		8633724621A5C63A00DC8061 /* responseObjectSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8633724521A5C63A00DC8061 /* responseObjectSerializable.swift */; };
 		864879D222948C4500D14DAB /* refresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864879D122948C4500D14DAB /* refresh.swift */; };
+		865572082451B8040026B7E9 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 865572062451B8040026B7E9 /* Model.xcdatamodeld */; };
+		8655720C2451CCE50026B7E9 /* NewsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8655720B2451CCE50026B7E9 /* NewsRow.swift */; };
+		8655720E2451CD200026B7E9 /* articleDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8655720D2451CD200026B7E9 /* articleDetail.swift */; };
+		865572102451CD3F0026B7E9 /* profileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8655720F2451CD3F0026B7E9 /* profileView.swift */; };
+		865572122451CD5B0026B7E9 /* WidgetsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865572112451CD5B0026B7E9 /* WidgetsRow.swift */; };
+		865572142451CD7A0026B7E9 /* alfred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865572132451CD7A0026B7E9 /* alfred.swift */; };
+		865572162451CD970026B7E9 /* OmNomWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865572152451CD970026B7E9 /* OmNomWidget.swift */; };
 		865BB2A621923D60002A2B34 /* FSCalendar.m in Frameworks */ = {isa = PBXBuildFile; fileRef = 86DE7F172191FE8F00F35841 /* FSCalendar.m */; };
 		8664103822626A2900B6084F /* ProTubePinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664103622626A2800B6084F /* ProTubePinViewController.swift */; };
 		8664103922626A2900B6084F /* ProtubeRemoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8664103722626A2800B6084F /* ProtubeRemoteViewController.swift */; };
@@ -68,6 +75,13 @@
 		8633724321A5717E00DC8061 /* OAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth.swift; sourceTree = "<group>"; };
 		8633724521A5C63A00DC8061 /* responseObjectSerializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = responseObjectSerializable.swift; sourceTree = "<group>"; };
 		864879D122948C4500D14DAB /* refresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = refresh.swift; sourceTree = "<group>"; };
+		865572072451B8040026B7E9 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		8655720B2451CCE50026B7E9 /* NewsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewsRow.swift; path = "/Users/hesselbierma/Documents/git/isaak/proto-application/proto-application/viewcontrollers/NewsRow.swift"; sourceTree = "<absolute>"; };
+		8655720D2451CD200026B7E9 /* articleDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = articleDetail.swift; path = "/Users/hesselbierma/Documents/git/isaak/proto-application/proto-application/viewcontrollers/articleDetail.swift"; sourceTree = "<absolute>"; };
+		8655720F2451CD3F0026B7E9 /* profileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileView.swift; sourceTree = "<group>"; };
+		865572112451CD5B0026B7E9 /* WidgetsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsRow.swift; sourceTree = "<group>"; };
+		865572132451CD7A0026B7E9 /* alfred.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alfred.swift; sourceTree = "<group>"; };
+		865572152451CD970026B7E9 /* OmNomWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmNomWidget.swift; sourceTree = "<group>"; };
 		865BB2AC21924463002A2B34 /* bridging-header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bridging-header.h"; sourceTree = "<group>"; };
 		8664103622626A2800B6084F /* ProTubePinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProTubePinViewController.swift; sourceTree = "<group>"; };
 		8664103722626A2800B6084F /* ProtubeRemoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtubeRemoteViewController.swift; sourceTree = "<group>"; };
@@ -195,7 +209,13 @@
 			children = (
 				8667E4BF2176316E00605CC9 /* ViewController.swift */,
 				86305C332190AD540001435B /* HomeViewController.swift */,
+				8655720F2451CD3F0026B7E9 /* profileView.swift */,
+				865572112451CD5B0026B7E9 /* WidgetsRow.swift */,
+				865572132451CD7A0026B7E9 /* alfred.swift */,
+				865572152451CD970026B7E9 /* OmNomWidget.swift */,
+				8655720B2451CCE50026B7E9 /* NewsRow.swift */,
 				86C0243222502138005EA123 /* articleViewController.swift */,
+				8655720D2451CD200026B7E9 /* articleDetail.swift */,
 				8664103722626A2800B6084F /* ProtubeRemoteViewController.swift */,
 				8664103622626A2800B6084F /* ProTubePinViewController.swift */,
 				8602B7C3225CF44F00C89037 /* OmnomcomQRViewController.swift */,
@@ -219,6 +239,7 @@
 				86F3E4FE2237F8FA00259C56 /* orderlines.swift */,
 				864879D122948C4500D14DAB /* refresh.swift */,
 				86C0243022500DCD005EA123 /* news.swift */,
+				865572062451B8040026B7E9 /* Model.xcdatamodeld */,
 				8664103E2262760B00B6084F /* QrInfo.swift */,
 				86DD8FEC21C17787001F3CF7 /* dateHelper.swift */,
 				8684F73921C3FA9C00CDF06C /* profilePicture.swift */,
@@ -310,6 +331,7 @@
 				TargetAttributes = {
 					8667E4B92176316E00605CC9 = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1160;
 					};
 				};
 			};
@@ -401,14 +423,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				8664103F2262760B00B6084F /* QrInfo.swift in Sources */,
+				8655720C2451CCE50026B7E9 /* NewsRow.swift in Sources */,
 				86305C3A2190ADCE0001435B /* ProfileViewController.swift in Sources */,
 				8633724221A46DB700DC8061 /* EventDetailViewController.swift in Sources */,
+				865572102451CD3F0026B7E9 /* profileView.swift in Sources */,
+				865572122451CD5B0026B7E9 /* WidgetsRow.swift in Sources */,
 				86F3E4FF2237F8FA00259C56 /* orderlines.swift in Sources */,
 				86DE7F2B2191FE8F00F35841 /* FSCalendarDelegationFactory.m in Sources */,
 				8684F73A21C3FA9C00CDF06C /* profilePicture.swift in Sources */,
 				86AC7B2B2198E3110064C780 /* PurchaseCell.swift in Sources */,
 				86DE7F342191FE8F00F35841 /* FSCalendarCalculator.m in Sources */,
 				86DE7F332191FE8F00F35841 /* FSCalendarConstants.m in Sources */,
+				865572082451B8040026B7E9 /* Model.xcdatamodeld in Sources */,
 				86DE7F2E2191FE8F00F35841 /* FSCalendar.m in Sources */,
 				86DE7F292191FE8F00F35841 /* FSCalendarCollectionView.m in Sources */,
 				86AC7B29219789550064C780 /* EventCell.swift in Sources */,
@@ -433,15 +459,18 @@
 				86DD8FE921C11F91001F3CF7 /* ProfileInfo.swift in Sources */,
 				8667E4C02176316E00605CC9 /* ViewController.swift in Sources */,
 				8667E4BE2176316E00605CC9 /* AppDelegate.swift in Sources */,
+				865572142451CD7A0026B7E9 /* alfred.swift in Sources */,
 				8602B7C4225CF44F00C89037 /* OmnomcomQRViewController.swift in Sources */,
 				86C0243322502138005EA123 /* articleViewController.swift in Sources */,
 				864879D222948C4500D14DAB /* refresh.swift in Sources */,
 				86305C342190AD540001435B /* HomeViewController.swift in Sources */,
+				865572162451CD970026B7E9 /* OmNomWidget.swift in Sources */,
 				86DE7F2A2191FE8F00F35841 /* FSCalendarDelegationProxy.m in Sources */,
 				86C0243122500DCD005EA123 /* news.swift in Sources */,
 				86995B9B219C525800DD63A8 /* constants.swift in Sources */,
 				86C0242F225005BD005EA123 /* newsArticleCell.swift in Sources */,
 				8633724421A5717E00DC8061 /* OAuth.swift in Sources */,
+				8655720E2451CD200026B7E9 /* articleDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,17 +620,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HV4P9Z4UNR;
 				INFOPLIST_FILE = "$(SRCROOT)/proto-application/helper files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.saproto.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "proto-application/helper files/bridging-header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -612,17 +643,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HV4P9Z4UNR;
 				INFOPLIST_FILE = "$(SRCROOT)/proto-application/helper files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = nl.saproto.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "proto-application/helper files/bridging-header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -649,6 +682,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		865572062451B8040026B7E9 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				865572072451B8040026B7E9 /* Model.xcdatamodel */,
+			);
+			currentVersion = 865572072451B8040026B7E9 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8667E4B22176316E00605CC9 /* Project object */;
 }

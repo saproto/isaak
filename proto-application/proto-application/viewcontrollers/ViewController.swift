@@ -10,6 +10,9 @@ import UIKit
 import AuthenticationServices
 import Alamofire
 import KeychainSwift
+import CoreData
+
+var container : NSPersistentContainer!
 
 class ViewController: UIViewController, ASWebAuthenticationPresentationContextProviding {
     
