@@ -30,7 +30,7 @@ struct OAuth {
     static var profileInfo = baseURL + "/api/user/info"
     static var profilePicture = baseURL + "/api/user/profile_picture"
     
-    static var upcomingEvents = baseURL + "/api/events/upcoming/for_user/"
+    static var upcomingEvents = baseURL + "/api/events/upcoming/for_user"
     static var signup = baseURL + "/api/events/signup/"
     static var signout = baseURL + "/api/events/signout/"
     

@@ -80,7 +80,13 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         
         eventSelection = [] //empty the array before filling it with a new selection
         
-        for i in 0 ... (events.count) - 1{
+        var count: Int = 0
+        
+        if events.count > 0 {
+            count = events.count - 1
+        }
+        
+        for i in 0 ... count {
             if events[i].start! >= fromDate{
                 if onlySubscribed{
                     if events[i].userSignedup ?? false{
